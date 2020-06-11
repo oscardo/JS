@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/javascript-master/css/design.css">
+    <link rel="stylesheet" href="../css/design.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
@@ -1737,6 +1737,859 @@ for (x in persona1){
     </code>
 </pre>  
 
+<h1>4. Eventos Formularios Cookies</h1>
+
+
+
+<p class="font-weight-bold">Eventos. Modelo de registro de eventos en línea</p>
+<p class="font-weight-normal">
+    EVENTO:<br/>
+        Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
+        Capturar un evento es programar una acción para que se realice una tarea.<br/>
+        El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
+        <br/>
+        MANEJADOR:<br/>
+            Acción que se va a manejar. <br/>
+            Por ejempo, en el evento click <br/>
+            (hacer click con el ratón) el manejador es onClick.<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;body onload="alert('La página se ha cargado correctamente')"&gt;
+        &lt;h1&gt;Modelo de registro de eventos en línea&lt;/h1&gt;
+        &lt;!-- Cada elemento XHTML tiene sus posibles eventos como propiedades: puede tener un evento de cada tipo.
+        El nombre del evento es "on" seguido del nombre de la acción--&gt;
+    
+        &lt;!--Manejadores como atributo de una etiqueta XHTML--&gt;
+        &lt;h3 id="cab1" onclick="this.innerHTML='Javascript en XHTML'" onmouseover="this.style.background='red'" onmouseout="this.style.background='white'"&gt;Pulsa aquí para ver lo que se ejecuta&lt;/h3&gt;
+        &lt;!-- h3 id="cab1" onclick="document.getElementById("cab1").innerHTML="..."&gt;...&lt;/h3&gt; --&gt;
+    
+        &lt;!-- Manejadores como funciones externas --&gt;
+        &lt;h3 onclick="cambiar(this)"&gt;Pulsa aquí para ver qué se ejecuta&lt;/h3&gt;
+        &lt;script&gt;
+            function cambiar(elem) {
+                elem.innerHTML = "Javascript en XHTML y función externa";
+            }
+        &lt;/script&gt;
+    
+        &lt;!-- Hay acciones que desencadenan varios eventos. Ej. submit desencadena onmousedown, onclick, onmouseup, onsubmit.
+        Para evitar que el navegador ejecute la acción por defecto necesitamos añadir "return false;" --&gt;
+        &lt;a href="http://www.google.com" onclick="alertar(); return false;"&gt;Pulsa aquí para ver qué se ejecuta&lt;/a&gt;
+        &lt;script&gt;
+            function alertar() {
+                alert("Vamos a Google");
+            }
+        &lt;/script&gt;
+        &lt;br/&gt;
+        &lt;a href="http://www.google.com" onclick="return preguntar();"&gt;Pulsa aquí para ver qué se ejecuta&lt;/a&gt;
+        &lt;script&gt;
+            function preguntar() {
+                return confirm("¿Deseas ir a Google?");
+            }
+        &lt;/script&gt;
+    
+        &lt;!-- Carga de página con evento onload --&gt;
+        &lt;!-- Escribimos la etiqueta: &lt;body onload="funcion_ejecutar"&gt; --&gt;
+        &lt;/body&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Eventos. Modelo de registro de eventos tradicional</p>
+<p class="font-weight-normal">
+    EVENTO:<br/>
+        Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
+        Capturar un evento es programar una acción para que se realice una tarea.<br/>
+        El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
+        <br/>
+        MANEJADOR:<br/>
+            Acción que se va a manejar. Por ejempo, <br/>
+            en el evento click (hacer click con el ratón) el manejador es onClick.<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;h1&gt;Modelo de registro de eventos tradicional&lt;/h1&gt;
+        &lt;h3 id="tradicional"&gt;Pulsa aquí para ver lo que se ejecuta&lt;/h3&gt;
+        &lt;script&gt;
+            document.getElementById("tradicional").onclick = cambiar; //¡¡Sin paréntesis!!
+            function cambiar() {
+                alert("Entramos en cambiar");
+                document.getElementById("tradicional").innerHTML = "Modelo de registro de eventos tradicional";
+                document.getElementById("tradicional").onclick = null;
+            }
+        &lt;/script&gt;
+    
+        &lt;!-- Inconveniente: la página debe estar completamente cargada para que se utilicen las funciones DOM que asignan manejadores a los elementos HTML --&gt;
+        &lt;h3 id="tradicional2"&gt;Pulsa aquí para ver qué se ejecuta&lt;/h3&gt;
+        &lt;script&gt;
+            window.onload = function () {
+                alert("La página ha cargado correctamente");
+                document.getElementById("tradicional2").onclick = miMensaje; //¡¡Sin paréntesis!!
+            }
+    
+            function miMensaje() {
+                document.getElementById("tradicional2").innerHTML = "Modelo de registro de eventos tradicional";
+            }
+        &lt;/script&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Eventos. Modelo de registro de eventos avanzados del W3C</p>
+<p class="font-weight-normal">
+    EVENTO:<br/>
+    Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
+    Capturar un evento es programar una acción para que se realice una tarea.<br/>
+    El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
+    <br/>
+    MANEJADOR:<br/>
+        Acción que se va a manejar. Por ejempo, en el evento click <br/>
+        (hacer click con el ratón) el manejador es onClick.<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;h1&gt;Modelo de eventos avanzados del W3C&lt;/h1&gt;
+        &lt;h3 id="w3c"&gt;Modelo del W3C&lt;/h3&gt;
+        &lt;h3 id="w3canonima"&gt;Modelo del W3C con funciones anónimas&lt;/h3&gt;
+    
+        &lt;script&gt;
+            /* elemento.addEventListener("&lt;evento_sin_on&gt;",&lt;funcion&gt;,&lt;false|true&gt;); */
+            document.getElementById("w3c").addEventListener("click", saludarUnaVez, false);
+            document.getElementById("w3c").addEventListener("click", colorearse, false);
+            document.getElementById("w3c").addEventListener("mouseover", fondo, false);
+    
+            function saludarUnaVez() {
+                alert("¡Hola, caracola!");
+                document.getElementById("w3c").removeEventListener("click", saludarUnaVez);
+            }
+    
+            function colorearse() {
+                document.getElementById("w3c").style.color = "red";
+            }
+    
+            function fondo() {
+                document.getElementById("w3c").style.background = "blue";
+            }
+    
+            /* Funciones anónimas */
+            /* elemento.addEventListener("&lt;evento_sin_on&gt;",function(){&lt;codigo_funcion}),false); */
+            document.getElementById("w3canonima").addEventListener("click", function () {
+                this.style.background = "#C0C0C0";
+            });
+        &lt;/script&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Eventos. Modelo de registro de eventos avanzados de Microsoft</p>
+<p class="font-weight-normal">
+    EVENTO:<br/>
+    Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
+    Capturar un evento es programar una acción para que se realice una tarea.<br/>
+    El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
+    <br/>
+    MANEJADOR:<br/>
+        Acción que se va a manejar. <br/>
+        Por ejempo, en el evento click <br/>
+        (hacer click con el ratón) el manejador es onClick.<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;h1&gt;Modelo de eventos avanzados de Microsoft&lt;/h1&gt;
+        &lt;h3 id="ms"&gt;Modelo de Microsoft&lt;/h3&gt;
+        &lt;h3 id="msanonima"&gt;Modelo de Microsoft&lt;/h3&gt;
+        &lt;script&gt;
+            /* elemento.attachEvent("&lt;evento_con_on&gt;",funcion); */
+            document.getElementById("ms").attachEvent("onclick", saludarUnaVez);
+            document.getElementById("ms").attachEvent("onclick", colorearse);
+            document.getElementById("ms").attachEvent("onmouseover", fondo);
+    
+            function saludaUnaVez() {
+                alert("¡Hola, caracola!");
+                document.getElementById("ms").detachEvent("onclick", saludarUnaVez);
+            }
+    
+            function colorearse() {
+                document.getElementById("ms").style.color = "red";
+            }
+    
+            function fondo() {
+                document.getElementById("ms").style.backgroundColor = "blue";
+            }
+    
+            /* Funciones anónimas */
+            /* elemento.attachEvent("&lt;evento_con_on&gt;",function(){...}); */
+            documnet.getElementById("msanonima").attachEvent("onclick", function () {
+                this.style.backgroundColor = "#C0C0C0";
+            });
+        &lt;/script&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Eventos. Obtener información de un evento</p>
+<pre class="code-js">
+    <code>
+        &lt;h1 id="eventos"&gt;Obtener información de un evento&lt;/h1&gt;
+        &lt;h2 id="parrafo1"&gt;Párrafo 1&lt;/h2&gt;
+        &lt;h2 id="parrafo2"&gt;Párrafo 2&lt;/h2&gt;
+        &lt;script&gt;
+            document.getElementById("eventos").addEventListener("mouseover", manejador);
+            document.getElementById("eventos").addEventListener("mouseout", manejador);
+            document.getElementById("parrafo1").addEventListener("click", saludo);
+            document.getElementById("parrafo2").addEventListener("click", saludo);
+    
+            function manejador(e) {
+                //Valoramos la posibilidad de que se utilice un navegador de Microsoft
+                if (!e) e = window.event;
+    
+                switch (e.type) {
+                case "mouseover":
+                    this.style.color = "purple";
+                    break;
+                case "mouseout":
+                    this.style.color = "yellow";
+                    break;
+                }
+            }
+    
+            function saludo(e) {
+                //Valoramos la posibilidad de que se utilice un navegador de Microsoft
+                if (!e) e = window.event;
+    
+                if (e.target.id == "parrafo1") alert("Has pulsado el primer párrafo");
+                else if (e.target.id == "parrafo2") alert("Has pulsado el segundo párrafo");
+    
+                alert("Has pulsado el " + e.target.id);
+            }
+        &lt;/script&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Formulario</p>
+<p class="font-weight-normal">
+HTML 
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Formulario&lt;/title&gt;
+    &lt;script src="validacion.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        .error {
+            border: solid 2px #FF0000;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Formulario&lt;/h1&gt;
+    &lt;form action="procesar.php" method="post" id="miFormulario"&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Nombre: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="nombre" id="nombre" /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Telefono: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="telefono" id="telefono" /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Fecha de nacimiento: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="dia" size="2" id="dia" /&gt;
+                    &lt;input type="text" name="mes" size="2" id="mes" /&gt;
+                    &lt;input type="text" name="ano" id="ano" size="4" /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Sexo : &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="radio" name="sexo" value="H" checked /&gt; Hombre
+                    &lt;input type="radio" name="sexo" value="M" /&gt; Mujer
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Mayor de 18:&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="checkbox" name="mayor" id="mayor" checked/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;p&gt;
+            &lt;input type="submit" value="Enviar" id="enviar" /&gt;
+            &lt;input type="reset" value="Borrar" id="borrar" /&gt;
+        &lt;/p&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Formulario</p>
+<p class="font-weight-normal">
+JS 
+</p>
+<pre class="code-js">
+    <code>
+        //SELECCION DEL FORMULARIO
+
+//Conociendo el id
+var formulario = document.getElementById("miFormulario");
+var formulario2 = document.forms["miFormulario"];
+
+//Conociendo el número de formulario que es en la página
+var formulario3 = document.getElementsByTagName("form")[0];
+var formulario4 = document.forms[0];
+
+//SELECCIONAR ELEMENTOS DE UN FORMULARIO
+//.elements[] Devuelve un array con todos los input del formulario
+//getElementById("idElemento") Devuelve un elemento con un id determinado
+//getElementsByTagName("etiqueta") Devuelve un array con 
+// elementos de un tipo de etiqueta (input, select, etc.)
+//getElementsByName("nombre") 
+// Devuelve un array con elementos que tienen el mismo nombre (por ejemplo, radiobutton).
+
+window.onload = iniciar; //Sin paréntesis
+
+function iniciar() {
+    document.getElementById("enviar").addEventListener('click', validar, false);
+}
+
+function validaNombre() {
+    var elemento = document.getElementById("nombre");
+    limpiarError(elemento);
+    if (elemento.value == "") {
+        alert("El campo no puede ser vacío");
+        error(elemento);
+        return false;
+    }
+    return true;
+}
+
+function validaTelefono() {
+    var elemento = document.getElementById("telefono");
+    if (isNaN(elemento.value)) {
+        alert("El campo teléfono tiene que ser numérico");
+        return false;
+    }
+    return true;
+}
+
+function validaFecha() {
+    var dia = document.getElementById("dia").value;
+    var mes = document.getElementById("mes").value;
+    var ano = document.getElementById("ano").value;
+
+    var fecha = new Date(ano, mes, dia);
+    if (isNaN(fecha)) {
+        alert("Los campos de la fecha son incorrectos");
+        return false;
+    }
+    return true;
+}
+
+function validaCheck() {
+    var campoCheck = document.getElementById("mayor");
+    if (!campoCheck.checked) {
+        alert("Debes ser mayor de edad");
+        return false
+    }
+    return true;
+}
+
+function validar(e) {
+    if (validaNombre() && validaTelefono() && validaFecha() 
+        && validaCheck() && confirm("Pulsa aceptar si deseas enviar el formulario")) {
+        return true;
+    } else {
+        e.preventDefault();
+        return false;
+    }
+}
+
+function error(elemento) {
+    elemento.className = "error";
+    elemento.focus();
+}
+
+function limpiarError(elemento) {
+    elemento.className = "";
+}
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;VALIDACION DE FORMULARIOS CON HTML5&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Formulario&lt;/h1&gt;
+    &lt;form action="procesar.php" method="post" id="miFormulario"&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Nombre*: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="nombre" id="nombre" maxlength="15" pattern="[A-Za-z]{2,15}" title="Introduce entre 2 y 15 letras" required/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Edad*: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="number" name="edad" id="edad" min="18" max="100" required/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Telefono*: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" title="Numero de 9 cifras" required/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;p&gt;
+            &lt;input type="submit" value="Enviar" id="enviar" /&gt;
+            &lt;input type="reset" value="Borrar" id="borrar" /&gt;
+        &lt;/p&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5 AVANZADO</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;VALIDACION DE FORMULARIOS CON HTML5&lt;/title&gt;
+    &lt;script src="validacion.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        .error {
+            border: solid 2px #FF0000;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Formulario&lt;/h1&gt;
+    &lt;form action="procesar.php" method="post" id="miFormulario"&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Nombre*: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="nombre" id="nombre" maxlength="15" pattern="[A-Za-z]{2,15}" title="Introduce entre 2 y 15 letras" required/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Edad*: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="number" name="edad" id="edad" min="18" max="100" required/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Telefono*: &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" title="Numero de 9 cifras" required/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;p id="mensajeError"&gt;&lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type="submit" value="Enviar" id="enviar" /&gt;
+            &lt;input type="reset" value="Borrar" id="borrar" /&gt;
+        &lt;/p&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5 AVANZADO</p>
+<p class="font-weight-normal">
+</p>
+<pre class="code-js">
+    <code>
+        window.onload = iniciar;
+
+function iniciar() {
+    document.getElementById("enviar").addEventListener('click', validar, false);
+}
+
+function validaNombre() {
+    var elemento = document.getElementById("nombre");
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error2(elemento, "Debe introducir un nombre")
+        }
+        if (elemento.validity.patternMismatch) {
+            error2(elemento, "El nombre debe tener entre 2 y 15 caracteres");
+        }
+        //error(elemento);
+        return false;
+    }
+    return true;
+}
+
+function validaEdad() {
+    var elemento = document.getElementById("edad");
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error2(elemento, "Debe introducir una edad")
+        }
+        if (elemento.validity.rangeOverflow) {
+            error2(elemento, "El valor debe ser menor de 100")
+        }
+        if (elemento.validity.rangeUnderflow) {
+            error2(elemento, "El valor debe ser mayor o igual que 18");
+        }
+        //error(elemento);
+        return false;
+    }
+    return true;
+}
+
+function validaTelefono() {
+    var elemento = document.getElementById("telefono");
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error2(elemento, "Debe introducir un teléfono")
+        }
+        if (elemento.validity.patternMismatch) {
+            error2(elemento, "El telefono debe tener 9 numeros");
+        } //error(elemento);
+        return false;
+    }
+    return true;
+}
+
+function validar(e) {
+    borrarError();
+    if (validaNombre() && validaEdad() && validaTelefono() && confirm("Pulsa aceptar si deseas enviar el formulario")) {
+        return true
+    } else {
+        e.preventDefault();
+        return false;
+    }
+}
+
+function error(elemento) {
+    document.getElementById("mensajeError").innerHTML = elemento.validationMessage;
+    elemento.className = "error";
+    elemento.focus();
+}
+
+function error2(elemento, mensaje) {
+    document.getElementById("mensajeError").innerHTML = mensaje;
+    elemento.className = "error";
+    elemento.focus();
+}
+
+function borrarError() {
+    var formulario = document.forms[0];
+    for (var i = 0; i &lt; formulario.elements.length; i++) {
+        formulario.elements[i].className = "";
+    }
+}
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Cookies</p>
+<p class="font-weight-normal">
+     ¿Qué son las Cookies?<br/>
+        - Datos almacenados en nuestro ordenador en pequeños archivos de texto.<br/>
+        - Recuerdan la información de un usuario aunque se cierre el navegador o se desconecte del servidor.<br/>
+        - Podemos guardar el nombre de un visitante de la página, el número de veces que ha entrado, etc.<br/>
+        - Se guardan en forma de pares "nombre=valor": usuario = Ada Lovelace<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;script&gt;
+            //Crear una cookie: nombre; fecha de expiracion -UTC-; edad máxima en segundos; ruta; dominio
+            //document.cookie ="usuario = Ada Lovelace; expires=Thu, 16 Nov 2017 12:00:00 UTC; path=/;";
+            document.cookie = "usuario = Ada Lovelace;";
+            document.cookie = "sexo = mujer;";
+            
+            //Leer una cookie
+            var miCookie = document.cookie;
+            alert(miCookie);
+            
+            //Modificar una cookie
+            document.cookie = "sexo = hombre;";
+            alert(document.cookie);
+            
+            //Borrar una cookie
+            //document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+            //document.cookie = "sexo=; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+            alert(document.cookie);        
+        &lt;/script&gt;
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">Cookies - Ejemplo práctico</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;body&gt;
+    &lt;button type="button" id="verTodas"&gt;Ver todas las cookies&lt;/button&gt;
+    &lt;button type="button" id="crearCookie1"&gt;Crear cookie 1&lt;/button&gt;
+    &lt;button type="button" id="crearCookie2"&gt;Crear cookie 2&lt;/button&gt;
+    &lt;button type="button" id="borrarCookie1"&gt;Borrar cookie 1&lt;/button&gt;
+    &lt;button type="button" id="borrarCookie2"&gt;Borrar cookie 2&lt;/button&gt;
+    &lt;script&gt;     
+document.getElementById("verTodas").addEventListener("click",verTodas);
+document.getElementById("crearCookie1").addEventListener("click",crearCookie);
+document.getElementById("crearCookie2").addEventListener("click",crearCookie);
+document.getElementById("borrarCookie1").addEventListener("click",borrarCookie);
+document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
+        
+        function verTodas(){
+            alert(document.cookie);
+        }
+        
+        function crearCookie(e){
+            if(!e) e = window.event;
+            if (e.target.id=="crearCookie1") 
+                document.cookie ="nombre = Ada";
+            else if (e.target.id=="crearCookie2") 
+                document.cookie ="apellido = Lovelace";
+        }
+        
+        function borrarCookie(e){
+            if(!e) e = window.event;
+            if (e.target.id=="borrarCookie1") 
+                document.cookie ="nombre =;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            else if (e.target.id=="borrarCookie2") 
+                document.cookie ="apellido =;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        }
+    &lt;/script&gt;
+    
+&lt;/body&gt;
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">Cookies - Ejemplo completo</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;body&gt;
+    &lt;button type="button" id="verTodas"&gt;Ver todas las cookies&lt;/button&gt;
+    &lt;button type="button" id="crearCookie"&gt;Crear cookie &lt;/button&gt;
+    &lt;button type="button" id="modificarCookie"&gt;Modificar cookie &lt;/button&gt;
+    &lt;button type="button" id="leerCookie"&gt;Leer cookie &lt;/button&gt;
+    &lt;button type="button" id="borrarCookie"&gt;Borrar cookie &lt;/button&gt;
+    &lt;script&gt;   
+        document.getElementById("verTodas").addEventListener("click",verCookies);
+        document.getElementById("crearCookie").addEventListener("click",crearModifCookie);
+        document.getElementById("modificarCookie").addEventListener("click",crearModifCookie);
+        document.getElementById("leerCookie").addEventListener("click",leerCookie);
+        document.getElementById("borrarCookie").addEventListener("click",borrarCookie);
+        
+        function verCookies(){
+            alert("Cookies actuales:\n"+document.cookie);
+        }
+        
+        function crearModifCookie(){
+            var nombre = prompt("Introduzca el nombre de la cookie");
+            var valor = prompt("Introduzca su valor");
+            var expiracion = parseInt(prompt("Introduzca el número de días para que expire"));
+            setCookie(nombre, valor, expiracion);
+            verCookies();
+        }
+        
+        function leerCookie(){
+            var nombre = prompt("Introduzca el nombre de la cookie a consultar");
+            var resultado = getCookie(nombre);
+            alert(resultado);
+        }
+        
+        function borrarCookie(){
+            var nombre = prompt("Introduzca el nombre de la cookie a borrar");
+            deleteCookie(nombre);
+            verCookies();
+        }
+        
+        function deleteCookie(nombre){
+            setCookie(nombre,"",0);
+        }
+        
+        function setCookie(nombre, valor, expiracion){
+            var d = new Date();
+            d.setTime(d.getTime()+expiracion*24*60*60*1000);
+            var expiracion = "expires="+d.toUTCString();
+            document.cookie = nombre+"="+valor+";"+expiracion+";path=/";
+        }
+        
+        function getCookie(nombre){
+            var nom = nombre+"=";
+            var array = document.cookie.split(";");
+            for (var i=0; i&lt;array.length; i++){
+                var c = array[i];
+                while (c.charAt(0)==" "){ 
+                    c = c.substring(1);
+                }
+                if (c.indexOf(nombre)==0){
+                    return c.substring(nom.length, c.length);
+                }
+            }
+            return "";
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">WebStorage - Ejemplo completo</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+            &lt;button type="button" id="incrementar"&gt;Incrementar&lt;/button&gt;
+            &lt;button type="button" id="decrementar"&gt;Decrementar&lt;/button&gt;
+            &lt;button type="button" id="logout"&gt;Logout&lt;/button&gt;
+            &lt;p id="saludo"&gt;&lt;/p&gt;
+            &lt;p id="contador"&gt;&lt;/p&gt;
+            
+            &lt;script&gt;
+                //Comprobar si el navegador soporta webstorage
+                if (typeof(Storage) !== "undefined"){
+                    //Saludo al usuario
+                    saludar();
+                    
+                    //Contador
+                    contador();
+                    
+                    //Botones incrementar y decrementar
+                    document.getElementById("incrementar").addEventListener("click",incrementar);
+                    document.getElementById("decrementar").addEventListener("click",decrementar);
+                    document.getElementById("logout").addEventListener("click",logout);
+                }else{
+                    alert("El navegador NO soporta WebStorage");
+                }
+                
+                function saludar(){
+                    alert("El navegador soporta WebStorage");
+                    if(localStorage.getItem("usuario")!=null){
+                        document.getElementById("saludo").innerHTML ="¡Bienvendo/a de nuevo, "+localStorage.getItem("usuario")+"!";
+                    }else{
+                        var nombre = prompt("¿Cómo te llamas?");
+                        localStorage.setItem("usuario",nombre);
+                        document.getElementById("saludo").innerHTML ="Tu primera visita,  "+localStorage.getItem("usuario");
+                    }
+                }
+                
+                function contador(){
+                    if (!sessionStorage.getItem("contador")){
+                        sessionStorage.setItem("contador","0"); //Se utilizan cadenas
+                    }
+                    document.getElementById("contador").innerHTML = "Contador: "+sessionStorage.getItem("contador");
+                }
+                
+                function incrementar(){
+                    sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))+1);
+                    document.getElementById("contador").innerHTML ) "Contador: "+sessionStorage.getItem("contador");
+                }
+                
+                function decrementar(){
+                    sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))-1);
+                    document.getElementById("contador").innerHTML ) "Contador: "+sessionStorage.getItem("contador");
+                }
+                
+                function logout(){
+                    alert("Se ha cerrado la sesión de "+localStorage.getItem("usuario"));
+                    localStorage.removeItem("usuario");
+                    //localStorage.clear(); //Solo afecta a localStorage
+                    document.getElementById("saludo").innerHTML= "";
+                }
+                
+            &lt;/script&gt;
+    </code>
+</pre>  
+
+
+<p class="font-weight-bold">WebStorage - Ejemplo completo</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    &lt;button type="button" id="incrementar"&gt;Incrementar&lt;/button&gt;
+    &lt;button type="button" id="decrementar"&gt;Decrementar&lt;/button&gt;    
+    &lt;button type="button" id="logout"&gt;Log out&lt;/button&gt;    
+    &lt;p id="saludo"&gt;&lt;/p&gt;
+    &lt;p id="contador"&gt;&lt;/p&gt;
+    &lt;script&gt;
+    //Comprobación de que el navegador soporta Web Storage
+    if (typeof(Storage) !== "undefined") {
+        alert("El navegador soporta WebStorage");
+        if (localStorage.usuario!=null){
+            document.getElementById("saludo").innerHTML="¡Bienvenido/a de nuevo, "+localStorage.usuario+"!";
+        }else{
+            localStorage.usuario=prompt("¿Cómo te llamas?");
+            document.getElementById("saludo").innerHTML="¡Tu primera visita, "+  localStorage.usuario+"!";
+        }
+        
+        if(!sessionStorage.getItem("contador")) 
+            sessionStorage.setItem("contador","0");
+
+        document.getElementById("contador").innerHTML="Contador: "+sessionStorage.getItem("contador");
+        document.getElementById("incrementar").addEventListener("click",incrementar);
+        document.getElementById("decrementar").addEventListener("click",decrementar);
+        document.getElementById("logout").addEventListener("click",logout);
+    } else {
+        alert ("El navegador no soporta Web Storage");
+    }
+        
+    function incrementar(){
+        sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))+1);
+        document.getElementById("contador").innerHTML = "Contador: "+ sessionStorage.getItem("contador");
+    }
+    function decrementar(){
+        sessionStorage.setItem("contador",Number(sessionStorage.getItem("contador"))-1);
+        document.getElementById("contador").innerHTML = "Contador: "+ sessionStorage.getItem("contador");
+    }
+    function logout(){
+        alert("Se ha cerrado la sesión de "+localStorage.getItem("usuario"));
+        localStorage.removeItem("usuario");
+        //sessionStorage.clear();
+        document.getElementById("saludo").innerHTML = "";
+    }
+
+    &lt;/script&gt;
+    </code>
+</pre>  
+
+<h1>5. DOM</h1>
+
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
 
@@ -1746,41 +2599,6 @@ for (x in persona1){
     </code>
 </pre>  
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
-
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
-
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
-
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
 
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
@@ -1792,8 +2610,24 @@ for (x in persona1){
 </pre>  
 
 
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
 
 
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
 
 
 
