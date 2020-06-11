@@ -1630,23 +1630,112 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
             </code>
         </pre>  
         
-        <p class="font-weight-bold">xxx</p>
-        <p class="font-weight-normal">
-        
-        </p>
+    
+        <p class="font-weight-bold">Objetos. Definición</p>
         <pre class="code-js">
             <code>
+                &lt;script&gt;
+                //1. Definir y crear un objeto simple utilizando un literal.
+                var persona1 = {
+                    nombre:"Ada", 
+                    apellido:"Lovelace", 
+                    ano: 1815};
+        
+                //2. Definir y crear un objeto simple utilizando la palabra new.
+                var persona2 = new Object();
+                persona2.nombre = "Charles";
+                persona2.apellido = "Babbage";
+                persona2.ano = 1791;
+        
+                //3. Definir un constructor de un objeto, y crear objetos del tipo construido.
+                function Persona (nom, ape, an){
+                    this.nombre = nom;
+                    this.apellido = ape;
+                    this.ano = an;
+                } 
+                var ada = new Persona ("Ada", "Lovelace", 1815);
+                var babbage = new Persona ("Charles", "Babbage", 1791);
+        
+                /* This (palabra reservada):
+                    - Hace referencia al propietario de la función que está invocándose.
+                    - Hace referencia al objeto donde la función es un método.*/
+        
+                &lt;/script&gt;
             </code>
         </pre>  
-        
-        <p class="font-weight-bold">xxx</p>
+       
+        <p class="font-weight-bold">Objetos. Propiedades</p>
         <p class="font-weight-normal">
-        
-        </p>
+        Sintaxis de acceso a las propiedades de un objeto:<br/>
+        - objeto.propiedad;<br/>
+        - objeto["propiedad"]<br/>
+        - objeto[expresion] <br/>
+        </p>    
         <pre class="code-js">
-            <code>
+        <code>
+&lt;script&gt;
+/* Sintaxis de acceso a las propiedades de un objeto:
+- objeto.propiedad;
+- objeto["propiedad"]
+- objeto[expresion] */
+
+var persona1 = {nombre:"Ada", apellido:"Lovelace", ano:"1815"};
+alert (persona1.nombre);
+alert (persona1["apellido"]);
+var expresion = "ano";
+alert (persona1[expresion]);
+
+/* Recorrer las propiedades de un objeto:
+for (&lt;nombre_variable&gt; in &lt;nombre_objeto&gt;){
+    &lt;nombre_objeto&gt;[&lt;nombre_variable&gt;];
+} */
+for (x in persona1){
+    alert(persona1[x]);
+}
+
+/* Añadir una nueva propiedad a un objeto:
+&lt;nombre_objeto&gt;.&lt;nueva_propiedad&gt; = &lt;valor_propiedad&gt;; */
+persona1.nacionalidad = "Inglaterra";
+alert(persona1.nacionalidad);
+
+/* Borrar una propiedad de un objeto:
+delete &lt;nombre_objeto&gt;.&lt;nombre_propiedad&gt;; */
+delete persona1.ano;
+
+for (x in persona1){
+    alert(persona1[x]);
+}
+
+&lt;/script&gt;
+
             </code>
         </pre>  
+
+<p class="font-weight-bold">>Objetos. Métodos</p>
+<p class="font-weight-normal">
+    /*Sintaxis de creación de métodos de un objeto:<br/>
+    <nombre_método> : function() { <br/>
+        //Instrucciones<br/>
+    } <br/>
+    Sintaxis de acceso a métodos de un objeto:<br/>
+    <nombre_objeto>.<nombre_método>(); */<br/>
+</p>
+<pre class="code-js">
+    <code>
+       
+		&lt;script&gt;
+		var persona1 = {nombre:"Ada", 
+						apellido:"Lovelace",
+						nombreCompleto: function(){
+							return this.nombre + " " + this.apellido;
+							}
+						};
+		alert (persona1.nombre);
+		alert (persona1.apellido);
+		alert (persona1.nombreCompleto());
+		&lt;/script&lt;
+    </code>
+</pre>  
 
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
@@ -1657,9 +1746,50 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
     </code>
 </pre>  
 
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
 
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
 
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
 
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
 
 
 
