@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/javascript-master/css/design.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <title>Manual de JS</title>
+</head>
+
+<body>
+    <h1>1. Sintaxis</h1>
+
+    <figure class="highlight">
+        <pre class="code-html">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+                &lt;head&gt;
+                    &lt;script src="01_holamundo.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;h1&gt;Bienvenido al curso de Javascript&lt;/h1&gt;
+                    &lt;script&gt;
+                        holamundo();
+                    &lt;/script&gt;
+                    &lt;h1&gt; Hasta luego&lt;/h1&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </pre>
+    </figure>
+
+    <pre class="code-js">
+        <code>
+            function holamundo(){
+                alert("Hola, mundo");
+                }
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Bienvenido a las instrucciones de salida</p>
+    <pre class="code-js">
+        <code>
+            &lt;script&gt;
+                window.alert(2+3);
+                document.write("&lt;h2&gt;¿Qué tal?&lt;/h2&gt;");
+                document.getElementById("miParrafo").innerHTML = 5/7;
+                console.log(1+1);
+            &lt;/script&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Sentencias en Javascript</p>
+    <pre class="code-html">
+        <code>
+            &lt;body&gt;
+	&lt;h1&gt;Sentencias en Javascript&lt;/h1&gt;
+	&lt;h2&gt;Punto y coma&lt;/h2&gt;
+	&lt;p&gt;Es recomendable utilizar ; al final de cada sentencia&lt;/p&gt;
+	&lt;p&gt;Podemos escribir varias sentencias en la misma línea separándolas con punto y coma&lt;/p&gt;
+	&lt;script&gt;
+		var a = 1; var b = 2; var c = a+b;
+		alert(c)
+	&lt;/script&gt;
+	&lt;h2&gt;Espacios en blanco&lt;/h2&gt;
+	&lt;p&gt;Los múltiples espacios en blanco se ignoran&lt;/p&gt;
+	&lt;p&gt;Se recomienda utilizar espacios entre operadores =, +, -, *, /&lt;/p&gt;
+		&lt;script&gt;
+		var nombre="Ada";
+		alert (nombre);
+	&lt;/script&gt;
+	&lt;h2&gt;Líneas de más de 80 caracteres&lt;/h2&gt;
+	&lt;p&gt;Es recomendable dividir la línea después de un operador&lt;/p&gt;
+	&lt;script&gt;
+		var apellido=
+			"Lovelace";
+		alert (apellido);
+	&lt;/script&gt;
+	&lt;h2&gt;Bloques de código&lt;/h2&gt;
+	&lt;p&gt;Se agrupan entre llaves&lt;/p&gt;
+	&lt;p&gt;Se utilizan en funciones, bucles, condiciones, etc.&lt;/p&gt;
+	&lt;script&gt;
+		function hola(){
+			alert ("Hola");
+			alert (" caracola");
+		}
+		hola();
+	&lt;/script&gt;
+	&lt;h2&gt;Palabras reservadas (keywords)&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;break&lt;/li&gt;
+		&lt;li&gt;continue&lt;/li&gt;
+		&lt;li&gt;switch&lt;/li&gt;
+		&lt;li&gt;for&lt;/li&gt;
+		&lt;li&gt;do...while&lt;/li&gt;
+		&lt;li&gt;if...else&lt;/li&gt;
+		&lt;li&gt;debugger&lt;/li&gt;
+		&lt;li&gt;try..catch&lt;/li&gt;
+		&lt;li&gt;var&lt;/li&gt;
+		&lt;li&gt;function&lt;/li&gt;
+		&lt;li&gt;return&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/body&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">VARIABLES EN JAVASCRIPT</p>
+    <p class="font-weight-normal">
+        <br/>
+        - Identificadores únicos.<br/>
+		- Recomendable utilizar identificadores descriptivos.<br/>
+		- Empiezan por letra, $, _ y siguen con letra, número, $ o _.<br/>
+		- Pueden contener cadenas ("", '') y números (enteros o decimales)<br/>
+		- Son sensibles a las mayúsculas (nombre != NOMBRE != Nombre)<br/>
+		- No pueden utilizarse palabras reservadas <br/>
+    </p>
+    <pre class="code-js">
+    <code>
+        //Declaración de variable
+		var nombre
+		//Mostramos el valor de la variable (undefined)
+		document.getElementById("parrafo1").innerHTML = nombre
+		//Asignación de valor a una variable
+		nombre = "Ada"
+		//Mostramos el valor de la variable
+		document.getElementById("parrafo2").innerHTML = nombre
+		//Declaración de variables en una sola sentencia
+		//var pais, nacimiento;
+		var pais="Reino Unido", 
+			nacimiento = 1815
+		//Asignación de operaciones a una variable
+		var nombreApellido = "Ada" + " " + "Lovelace";
+		var fallecimiento = nacimiento + 37
+        document.getElementById("parrafo3").innerHTML = nombreApellido + " nació en " + pais + " en " + nacimiento + " y murió en " + fallecimiento;
+    </code>
+    </pre>
+    <br/>
+    <p class="font-weight-bold">Operadores aritméticos en Javascript</p>
+    <pre class="code-js">
+        <code>
+            &lt;script&gt;
+            // OPERADORES ARITMÉTICOS: +, -, *, /, %, ++, --.
+
+            //UTILIZACION
+            var x = 5; var y = 2;
+            var dosNumeros = 1 + 7;
+            var dosVariables = x + y;
+            var numeroVariable = 4 + x;
+    
+            alert("La variable dosNumeros contiene "+dosNumeros);
+            alert("La variable dosVariables contiene "+dosVariables);
+            alert("La variable numeroVariable contiene "+numeroVariable);
+    
+            //EJEMPLOS DE OPERADORES BINARIOS
+            var suma = x + y;
+            var resta = x - y;
+            var multiplicacion = x * y;
+            var division = x / y;
+            var modulo = x % y;
+    
+            alert ("La suma es "+suma);
+            alert ("La resta es "+resta);
+            alert ("El producto es "+multiplicacion);
+            alert ("La division es "+division);
+            alert ("El modulo es "+modulo);
+    
+            //EJEMPLOS DE OPERADORES UNARIOS
+            var a = 8;
+            alert ("El valor inicial de a es "+a);
+            ++a;
+            alert ("El valor de a después del incremento es "+a);
+            --a;
+            alert ("El valor de a después del decremento es "+a);
+            &lt;/script&gt;
+        </code>
+    </pre>
+    <p class="font-weight-bold">Operadores de asignación en Javascript</p>    
+    <pre class="code-js">
+        <code>
+            &lt;script&gt;
+                //OPERADORES DE ASIGNACIÓN: =, +=, -=, *=, /=, %=
+    
+                //EJEMPLO DE OPERADOR DE ASIGNACION =
+                var x = 10;
+    
+                //EJEMPLO DE OPERADOR DE ASIGNACION +=
+                x+=5; // x = x + 5
+                alert ("El valor de x es "+x);
+    
+                //EJEMPLO DE OPERADOR DE ASIGNACION *=
+                var y = 10;
+                y*=5; // y = y * 5
+                alert ("El valor de y es "+y);
+    
+                //EJEMPLO DE OPERADOR DE ASIGNACION %=
+                var z = 10;
+                z%=5; 
+                alert ("El valor de z es "+z);
+            &lt;/script&gt;
+        </code>
+    </pre>
+    <p class="font-weight-bold">Operadores de cadena</p>    
+    <pre class="code-js">
+        <code>
+            &lt;script&gt;
+                //OPERADOR +
+                var nombre = "Ada";
+                var apellido = 'Lovelace';
+                var completo = nombre + " " + apellido;
+                alert (completo);
+        
+                //OPERADOR DE ASIGNACION +=
+                var texto = "ABCD";
+                texto += "EFGH"; //texto = texto + "EFGH";
+                alert(texto);
+        
+                //SUMAR NÚMEROS Y CADENAS
+                var resultado = 4 + 5 + "Ada Lovelace";
+                alert (resultado);
+            &lt;/script&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Operadores de comparación</p>    
+    <pre class="code-js">
+        <code>
+
+    &lt;script&gt;
+        var x = 5; // Tipo numérico
+
+        //Operador de igualdad (==)
+        alert("x==8 es "+(x==8)); //Devuelve false
+        alert("x==5 es "+(x==5)); //Devuelve true
+        alert("x=='5' es "+(x=='5')); //Devuelve true
+
+        //Operador de igualdad estricta (===)
+        alert("x===8 es "+(x===8)); //Devuelve false
+        alert("x===5 es "+(x===5)); //Devuelve true
+        alert("x==='5' es "+(x==='5')); //Devuelve false
+
+        //Operador de desigualdad (!=)
+        alert("x!=8 es "+(x!=8)); //Devuelve true
+        alert("x!=5 es "+(x!=5)); //Devuelve false
+        alert("x!='5' es "+(x!='5')); //Devuelve false
+
+        //Operador de desigualdad estricta (!==)
+        alert("x!==8 es "+(x!==8)); //Devuelve true
+        alert("x!==5 es "+(x!==5)); //Devuelve false
+        alert("x!=='5' es "+(x!=='5')); //Devuelve true
+
+        //Operador de mayor que (>)
+        alert("x>8 es "+(x>8)); //Devuelve false
+
+        //Operador de menor que (&lt;)
+        alert("x&lt;8 es "+(x&lt;8)); //Devuelve true
+
+        //Operador de mayor o igual que (&gt;=)
+        alert("x&gt;=8 es "+(x&gt;=8)); //Devuelve false
+
+        //Operador de menor o igual que (&lt;=)
+        alert("x&lt;=8 es "+(x&lt;=8)); //Devuelve true
+    &lt;/script&gt;
+    </code>
+    </pre>
+
+    <p class="font-weight-bold">Operadores lógicos en Javascript/p>    
+    <pre class="code-js">
+        <code>
+        &lt;script&gt;
+			//OPERADOR AND / Y (&&)
+			var x = 4, y = 2;
+
+			var resultado = (x &lt; 5 && y &gt; 1); //Resultado true
+			resultado = (x &gt; 5 && y &gt; 1); //Resultado false
+			alert (resultado);
+
+			//OPERADOR OR / O (||)
+			var resultado2 = (x > 5 || y > 1); //Resultado true
+			alert (resultado2);
+
+			//OPERADOR NOT / NO (!)
+			var resultado3 = !(x==y); //Resultado true
+			alert (resultado3);
+        &lt;/script&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Operador ternario</p>    
+    <pre class="code-js">
+        <code>
+        &lt;script&gt;
+			// (CONDICION) ? RESULTADO_CIERTO : RESULTADO_FALSO
+			var edad = 22;
+			var puedeVotar = (edad > 18) ? "Puede votar" : "No puede votar";
+			alert (puedeVotar);
+        &lt;/script&gt;
+        </code>
+        </pre>
+
+        <p class="font-weight-bold">Operadores de tipos en Javascript</p>        
+        <pre class="code-js">
+            <code>
+		    &lt;script&gt;
+			    //TYPEOF: nos devuelve el tipo de dato de una variable o dato
+			    var cadena = "Ada Lovelace"; //Devuelve string
+			    var numero = 3.14; //Devuelve numbre
+			    var bool = true; //Devuelve boolean
+			    var lista = [1, 2, 3, 4]; //Devuelve object
+			    var registro = {nombre: "Ada", apellido: "Lovelace"}; //Devuelve object
+			    var fecha = new Date; //Devuelve object
+			    var miFuncion = function miFun () {alert ("Hola");}; //Devuelve function
+			    var sinDefinir; //Devuelve undefined
+			    var vacia = null; //Devuelve object
+
+			    //INSTANCEOF: nos devuelve true si un objeto es una instancia de otro especificado
+			    var animales = ["perro", "gato", "hamster"];
+			    alert (animales instanceof Object); //Devuelve true
+			    alert (animales instanceof Array); //Devuelve true
+			    alert (animales instanceof Number); //Devuelve false
+            &lt;/script&gt;
+            </code>
+        </pre>
+    
+        <p class="font-weight-bold">Tipos de datos en Javascript</p>        
+        <pre class="code-js">
+            <code>
+            &lt;script&gt;
+			// CADENAS o STRINGS
+			var cadena = "Ada";
+			var cadena2 = ' Lovelace';
+			var cadena3 = "Ada 'Lovelace'";
+
+			// NÚMEROS
+			var entero = 3;
+			var decimal = 3.56;
+			var cientifica = 12e-5;
+
+			// BOOLEANOS
+			var cierto = true;
+			var falso = false;
+
+			// ARRAY
+			var lista = [1, "Hola", 6, "Caracola"];
+
+			// OBJETOS
+			var animal = {nombre: "Lola", tipo: "Hamster", raza: "Ruso", edad:1};
+
+			// OPERADOR typeof
+			alert (typeof cadena); //Devuelve string
+			alert (typeof cierto); //Devuelve boolean
+			alert (typeof animal); //Tanto arrays como objetos devuelve object
+
+			// UNDEFINED
+			var objetoSinDefinir; 
+			alert (objetoSinDefinir); //Devuelve undefined
+
+			// VACIO
+			var cadena4 = "";
+			alert ("Cadena: "+cadena4 + " tipo: "+typeof cadena4);
+
+			// NULL
+			var animal = null;
+			alert ("Animal: "+animal+ " tipo: "+typeof animal);
+
+			//NULOS vs NO DEFINIDOS
+			typeof undefined; //Devuelve undefined
+			typeof null; //Devuelve objeto
+			null === undefined; //Devuelve false
+			null == undefined; //Devuelve true
+            &lt;/script&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Funciones - Introducción</p>        
+    <pre class="code-js">
+        <code>
+            &lt;script&gt;
+                // SINTAXIS DE UNA FUNCION
+                // function nombre_funcion (&lt;parámetros_separados_por_comas&gt;) { ... }
+        
+                // Función sin parámetros
+                function saludo (){
+                    alert("¡Hola!");
+                }
+        
+                // Los paréntesis () invocan a la función
+                var resultado_saludo = saludo();
+                alert (resultado_saludo);
+        
+                // Sin paréntesis se puede guardar la función en una variable o mostrar
+                var resultado_saludo2 = saludo;
+                alert(resultado_saludo2);
+        
+                // Función con parámetros
+                function producto (a, b){
+                    return a * b;
+                }
+        
+                // Los paréntesis () invocan a la función
+                var resultado_producto = producto(3, 4);
+                alert (resultado_producto);
+        
+                // Podemos introducir en el alert diréctamente la función
+                alert (producto(5,6));
+        
+                // Sin paréntesis se puede guardar la función en una variable o mostrar
+                alert (producto);
+        
+                &lt;/script&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Funciones anónimas</p>        
+    <pre class="code-js">
+        <code>
+    &lt;script&gt;
+    //Sintaxis de una función no anónima
+    //function nombre (&lt;parámetros&gt;) { &lt;instrucciones&gt; }
+
+    //SINTAXIS DE UNA FUNCIÓN ANÓNIMA
+    var producto = function (a, b) { return a * b;};
+    var resultado = producto(3,6);
+    alert (resultado);
+
+    //EL CONSTRUCTOR FUNCTION()
+    var miFuncion = new Function ("a", "b", "return a*b;");
+    var resultado2 = miFuncion(5,7);
+    alert (resultado2);
+
+    //FUNCIONES ANÓNIMAS AUTOINVOCADAS
+    (function () { alert ("¡Hola!");}());
+
+    &lt;/script&gt;
+    </code>
+    </pre>
+
+    <p class="font-weight-bold">Parámetros de funciones</p>
+    <p class="font-weight-normal">
+        PARÁMETROS Y ARGUMENTOS:<br/>
+		- Función puede tener cero o más parámetros.<br/>
+		- Parámetros son los nombres que aparecen en la definición de una función.<br/>
+		- Argumentos con los valores que pasamos a (y que recibe) una función<br/>
+        <br/>
+		REGLAS DE LOS PARÁMETROS:<br/>
+		- No se especifica el tipo de los parámetros.<br/>
+		- No se verifican los tipos de los argumentos.<br/>
+		- No se comprueba el número de los argumentos recibidos. <br/>
+        <br/>
+		//PARÁMETROS POR DEFECTO<br/>
+        //Cuando llamamos a una función con menos argumentos de los declarados. Los valores que faltan no están definidos.<br/>
+    </p>
+
+    <pre class="code-js">
+        <code>
+            &lt;script&gt;
+                
+                    //PARÁMETROS POR DEFECTO
+                    //Cuando llamamos a una función con menos argumentos de los declarados. Los valores que faltan no están definidos.
+                    function suma (a, b){
+                        if (b === undefined)
+                            b = 0;
+                        return a + b;
+                    }
+        
+                    var resultado = suma (4);
+                    alert (resultado);
+        
+                    //PARÁMETROS POR EXCESO
+                    //Cuando llamamos a una función con más argumentos de los que ha
+                    //sido declarada. Los valores que nos llegan pueden capturarse
+                    // a través de un objeto (incluido en la función) llamado arguments.
+                    function valores (){
+                        alert ("El número de argumentos es "+arguments.length);
+                        for (var i=0; i &lt; arguments.length; i++){
+                            alert ("Argumento "+i+"="+arguments[i]);
+                        }
+                    }
+                    valores (4, 6, 8, 2, 7, 5);
+                    &lt;/script&gt;
+        </code>
+    </pre>
+
+    <p class="font-weight-bold">Ámbito de variables</p>
+    <p class="font-weight-normal">
+        //VARIABLES LOCALES<br/>
+        /* - Se define dentro de una función.<br/>
+           - Tienen ámbito local en la función.<br/>
+           - Son accesibles únicamente dentro de la función.<br/>
+           - Podemos declarar variables con el mismo nombre en diferentes funciones.<br/>
+           - Variable local desaparece cuando finaliza la función. <br/>
+    </p>
+
+    <pre class="code-js">
+        <code>
+      &lt;script&gt;
+        //VARIABLES LOCALES
+        /* - Se define dentro de una función.
+           - Tienen ámbito local en la función.
+           - Son accesibles únicamente dentro de la función.
+           - Podemos declarar variables con el mismo nombre en diferentes funciones.
+           - Variable local desaparece cuando finaliza la función. */
+           function saludar(){
+               var saludo = "Hola";
+               alert (saludo);
+           }
+           saludar();
+
+        //VARIABLES GLOBALES
+        /* - Se definen fuera de las funciones.
+           - Tienen ámbito global (en toda la página).
+           - Son accesibles desde fuera y dentro de las funciones.
+           - Variables globales desaparecen cuando se sale de la página. */
+           var despedida = "Adios";
+           function despedir(){
+               alert (despedida);
+           }
+           despedir();
+
+        //VARIABLES AUTOMÁTICAMENTE GLOBALES
+        // - Si asignamos un valor a una variable no declarada se convierte en globar.
+        function preguntar(){
+            pregunta = "¿De qué color es el caballo blanco de Santiago?";
+        }
+        preguntar();
+        alert(pregunta);
+
+        //VARIABLES LOCALES Y GLOBALES CON EL MISMO NOMBRE
+        var miVariable = "Fuera";
+        function ambito(){
+            var miVariable = "Dentro";
+            alert (miVariable);
+        }
+        alert(miVariable); //Devuelve Fuera
+        ambito(); //Devuelve Dentro
+        alert(miVariable); //Devuelve Fuera
+
+        //VARIABLE GLOBAL REDEFINIDA DENTRO DE UNA FUNCIÓN
+        var miVariable2 = "Fuera";
+        function ambito2(){
+            miVariable2 = "Dentro";
+            alert (miVariable2);
+        }
+        alert(miVariable2); //Devuelve Fuera
+        ambito2(); //Devuelve Dentro
+        alert(miVariable2); //Devuelve Dentro 
+    &lt;/script&gt;
+    </code>
+    </pre>
+    <p class="font-weight-bold">Condicionales. Sentencias if...else</p>
+    <pre class="code-js">
+        <code>
+
+        
+            &lt;script&gt;
+			//IF: especifica un bloque de código que se ejecuta si una condición es cierta.
+			/* SINTAXIS:
+			if (&lt;condicion&gt;){
+				//Instrucciones si la condición es verdadera
+			} */
+
+			var nota = 8;
+			if (nota &gt;= 5){
+				alert ("Has aprobado");
+			}
+
+			//ELSE: especifica un bloque de código que se ejecuta si una condición es falsa.
+			/* SINTAXIS:
+			if (&lt;condicion&gt;){
+				//Instrucciones si la condición es verdadera
+			} else {
+				//Instrucciones si la condición es falsa
+			}*/
+
+			var nota2 = 4;
+			if (nota2 &gt;=5){
+				alert ("Has aprobado");
+			} else {
+				alert ("Has suspendido");
+			}
+
+			//ELSE IF: especifica una nueva condición si la primera es falsa.
+			/* SINTAXIS:
+			if (&lt;condicion&gt;){
+				//Instrucciones si la condición 1 es verdadera
+			} else if (&lt;condicion 2&gt;) {
+				//Instrucciones si la condición 1 es falsa y la condición 2 es verdadera.
+			} else {
+				//Instrucciones si la condición 1 es falsa y la condición 2 es falsa.
+			} */
+
+			var nota3 = 9;
+			if (nota3 &lt; 5) {
+				alert ("Has suspendido");
+			} else if (nota3 == 5){
+				alert ("Has sacado un suficiente");
+			} else if (nota3 == 6){
+				alert ("Has sacado un bien");
+			} else if (nota3 == 7 || nota3 == 8){
+				alert ("Has sacado un notable");
+			} else {
+				alert ("Has sacado un sobresaliente");
+			}
+
+            &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Condicionales. Sentencia switch</p>
+<p class="font-weight-normal">
+            /* SWITCH:<br/>
+			 - Se utiliza para hacer diferentes acciones basadas en diferentes condiciones. <br/>
+			 - La condición se evalúa una única vez.<br/>
+			 - Si hay alguna coincidencia con algún valor se ejecuta el bloque de código correspondiente.<br/>
+			 - Break: sale del bloque switch.<br/>
+			 - Default: se ejecuta en caso de que la expresión no coincide con ningún valor.<br/>
+			 */
+             <br/>
+			 /* SINTAXIS<br/>
+			 switch (<expresión>){<br/>
+				case valor_1: <br/>
+					//Instrucciones para valor_1<br/>
+					break;<br/>
+				case valor_n:<br/>
+					//Instrucciones para valor_n<br/>
+					break;<br/>
+				default: <br/>
+					//Instrucciones en caso de que no se cumpla ninguna condición.<br/>
+			 }*/<br/>
+</p>
+
+        <pre class="code-js">
+            <code>
+                &lt;script&gt;
+		 var nota = 11;
+			 var mensaje = "";
+			 switch (nota){
+			 	case 0: 
+			 	case 1: 
+			 	case 2: 
+			 	case 3: 
+			 	case 4: 
+			 		mensaje = "Suspenso";
+			 		break;
+			 	case 5: 
+			 		mensaje = "Suficiente";
+			 		break;	
+			 	case 6: 
+			 		mensaje = "Bien";
+			 		break;
+			 	case 7: 
+			 	case 8: 
+			 		mensaje = "Notable";
+			 		break;
+			 	case 9: 
+			 	case 10: 
+			 		mensaje = "Sobresaliente";
+			 		break;
+			 	default:
+			 		mensaje = "El valor no es válido";
+			 }
+			 alert (mensaje);
+
+             &lt;/script&gt;
+    </code>
+</pre>
+
+<p class="font-weight-bold">Repeticiones. Bucle for</p>
+<p class="font-weight-normal">
+/* SINTAXIS:<br/>
+for (&lt;sentencia_1&gt;; &lt;sentencia_2&gt;; &lt;sentencia_3&gt;){<br/>
+    //Código que se repite<br/>
+}<br/>
+- SENTENCIA 1: se ejecuta antes del que empiece el bloque de código a repetir.<br/>
+- SENTENCIA 2: define la condición por la que el bloque de código se va a ejecutar.<br/>
+- SENTENCIA 3: se ejecuta después de que acabe el bloque de código a repetir. */<br/>
+</p>
+<pre class="code-js">
+    <code>
+		&lt;script&gt;
+                var i;
+				for (i = 1; i &lt;= 5; i++){
+					alert ("i = "+i);
+				}
+
+				// VARIACIONES
+                //1. Si omitimos la primera sentencia debemos haber 
+                //inicializado la variable con anterioridad.
+				var j = 1;
+				for ( ; j &lt;=5; j++){
+					alert ("j = "+j);
+				}
+
+                //2. Si omitimos la segunda sentencia, dentro del código 
+                77a repetir debemos incluir una instrucción break.
+				var k;
+				for (k=1; ;k++){
+					alert ("k = "+k);
+					if (k == 5){
+						break;
+					}
+				}
+
+                //3. Si omitimos la tercera sentencia, 
+                //debemos incrementar o decrementar el valor de la variable dentro del bucle.
+				var l;
+				for (l=1; l&lt;=5; ){
+					alert ("l = "+l);
+					l++;
+				}
+
+				//4. Podemos trabajar con dos o más valores dentro del bucle for
+				var m, n;
+				for (m=1, n=10; m&lt;=10, n&gt;=1; m++, n--){
+					alert ("m = "+m+", n = "+n);	
+				}
+
+                &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Repeticiones. Bucle for in</p>
+<pre class="code-js">
+    <code>
+        &lt;script&gt;
+			//Definimos un objeto animal
+			var animal = {nombre:"Lola", tipo:"Hamster", raza:"Ruso", edad:1};
+        	var prop;
+        	for (prop in animal){
+				alert(animal[prop]);
+			}
+        &lt;/script&gt;
+</code>
+</pre>
+    
+<p class="font-weight-bold">Repeticiones. Bucle while</p>
+<pre class="code-js">
+    <code>
+        &lt;script&gt;
+			/* SINTAXIS WHILE:
+				while (&lt;condicion&gt;){
+					//Código a ejecutar
+				} */
+
+			var i = 0;
+			while (i < 10){
+				alert ("i = "+i);
+				i++;
+			}
+
+			for(i = 0; i < 10; ){
+				alert ("i = "+i);
+				i++;
+			}
+        &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Saltos. Sentencias break y continue</p>
+<p class="font-weight-normal">
+BREAK: salir o saltar fuera un bucle, finalizándolo.<br/>
+CONTINUE: saltar hasta la siguiente iteración del bucle; permite saltar una o más iteraciones. <br/>
+<br/>
+ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos puntos.<br/>
+		  - Break sin etiquetas se puede utilizar en bucles o switch.<br/>
+		  - Break con eitqueta también se puede utilizar en un bloque de sentencias etiquetado.<br/>
+		  - Continue: la etiqueta es opcional. Siempre debe estar dentro un bucle.<br/>		   
+</p>
+
+<pre class="code-js">
+    <code>
+      &lt;script&gt;
+        
+        /* BREAK: salir o saltar fuera un bucle, finalizándolo.
+		   CONTINUE: saltar hasta la siguiente iteración del bucle; permite saltar una o más iteraciones. */
+
+		// Ejemplo de bucle con break
+		  var i;
+		  for (i = 0; i &lt; 10; i++){
+		  	if (i == 3){ 
+		  		break;
+		  	}
+		  	alert ("i = "+i);
+		  }
+
+		//Ejemplo de bucle con continue
+		 var j;
+		  for (j = 0; j &lt; 10; j++){
+		  	if (j == 3 || j == 5){ 
+		  		continue;
+		  	}
+		  	alert ("j = "+j);
+		  }
+
+		  /*ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos puntos.
+		  - Break sin etiquetas se puede utilizar en bucles o switch.
+		  - Break con eitqueta también se puede utilizar en un bloque de sentencias etiquetado.
+		  - Continue: la etiqueta es opcional. Siempre debe estar dentro un bucle.
+		   */
+
+		  //Ejemplo de break con etiquetas
+		  var animales = ["perro", "gato", "hamster"];
+
+		  ver_animales:
+		  {
+		  	alert (animales[0]);
+		  	alert (animales[1]);
+		  	break ver_animales;
+		  	alert (animales[2]);
+          }
+          //Ejemplo de continue con etiquetas
+		  var k;
+		  bucle: 
+		  	for (k = 0; k &lt; 10; k++){
+		  	if (k == 3 || k == 5){ 
+		  		continue bucle;
+		  	}
+		  	alert ("k = "+k);
+		}
+        &lt;/script&gt;
+        </code>
+</pre>
+
+<h1>2. Objetos Predefinidos</h1>
+<p class="font-weight-bold">Objetos. Introducción</p>
+<pre class="code-js">
+    <code>
+&lt;script&gt;
+    //DATOS PRIMITIVOS:
+    var cadena = "Ada Lovelace";
+    var pi = 3.14;
+    var bool = true; //false
+    var nodefinida = undefined;
+    var nula = null;
+
+    //OBJETOS NATIVOS: no dependen del navegador.
+    /* - String
+       - Number
+       - Boolean
+       - Data
+       - Math
+       - RegExp (Expresiones regulares)
+       - Array
+       - Function
+       - Object */ 
+
+    //OBJETOS DE ALTO NIVEL: dependen del navegador.
+    /* - Window
+       - Screen
+       - Navigator
+       - Location
+       - History
+       - Document */
+
+    //DEFINICIÓN DE OBJETO:
+    var programadora = {nombre: "Ada", apellido: "Lovelace", ano: 1815};
+    /* - Propiedades: se definen en modo nombre:valor. Ej. nombre, apellido y ano.
+       - Métodos: acciones que se pueden ejecutar sobre un objeto. */  
+    &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Objetos. Constructores integrados</p>
+<pre class="code-js">
+    <code>
+    &lt;script&gt;
+        //1. String: 
+        var x1 = new String(); //No utilizar
+        var y1 = "Ada Lovelace"; //Utilizar
+
+        //2. Number: 
+        var x2 = new Number(); //No utilizar
+        var y2 = 3.14; //Utilizar
+
+        //3. Boolean: 
+        var x3 = new Boolean(); //No utilizar
+        var y3 = true; //Utilizar
+
+        //4. Array:
+        var x4 = new Array(); //No utilizar
+        var y4 = []; //Utilizar
+
+        //5. RegExp:
+        var x5 = new RegExp(); //No utilizar
+        var y5 = //; //Utilizar
+
+        //6. Function:
+        var x6 = new Function(); //No utilizar
+        var y6 = function (){}; //Utilizar
+
+        //7. Date:
+        var x7 = new Date();
+
+        //8. Math: no se puede declarar con "new" porque es un objeto global.
+
+        //9. Object:
+        var x8 = {};
+
+
+    &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Objetos nativos. String</p>
+<pre class="code-js">
+    <code>
+
+        &lt;script&gt;
+        //INSTANCIACIÓN:
+        var daw = "Desarrollo de aplicaciones web";
+        var dam = 'Desarrollo de aplicaciones multiplataforma';
+        var asir = "Administración de 'Sistemas Informáticos' en Red";
+        var smr = "Sistemas \"Microinformáticos\" y Redes";
+        var ciclos = new String("");
+    
+        //CONCATENACIÓN DE CADENAS
+        ciclos += "Hay 3 ciclos de Grado Superior: \n";
+        ciclos += daw + ", " + dam + " y " + asir + "\n";
+        ciclos += " y 1 ciclo de Grado Medio: \n";
+        ciclos += smr;
+    
+        alert (ciclos);
+    
+        //PROPIEDADES
+        //length: devuelve la longitud de una cadena
+        alert ("La longitud de la cadena ciclos es: "+ciclos.length);
+    
+        //MÉTODOS:
+        //BÚSQUEDA:
+        //CharAt(&lt;num&gt;): devuelve el caracter de una posición.
+        alert ("El caracter 16 de la cadena ciclos es: "+ciclos.charAt(16));
+        //indexOf(&lt;caracter&gt;): devuelve la primera posición de un caracter en una cadena.
+        alert ("La primera aparición de la letra a en ciclos es: "+ciclos.indexOf("a"));
+        //lastIndexOf(&lt;caracter&gt;): devuelve la última posición de un caracter en una cadena.
+        alert ("La última aparición de la letra a en ciclos es: "+ciclos.lastIndexOf("a"));
+        //search(&lt;cadena|expresión&gt;): buscar una cadena o expresión regular en otra cadena.
+        alert ("Busca la cadena 'web' en la variable daw: "+daw.search("web"));
+        //match (&lt;expresión regular&gt;): busca una expresión regular en otra cadena.
+    
+        //COMPARACIÓN:
+        //localeCompare(&lt;cadena&gt;): devuelve -1 (antes), 0 (igual), 1 (después)
+        alert ("¿Es daw menor que dam? "+ daw.localeCompare(dam));
+    
+        //INCLUYE, EMPIEZA O TERMINA
+        //includes(&lt;cadena&gt;): devuelve true si la cadena incluye el parámetro.
+        alert ("¿Incluye 'aplicaciones' daw? "+daw.includes("aplicaciones"));
+        //startsWith(&lt;cadena&gt;): devuelve true si la cadena empieza con el parámetro.
+        alert ("Empieza daw con la palabra 'aplicaciones'? "+daw.startsWith("aplicaciones"));
+        //endsWith(&lt;cadena&gt;): devuelve true si la cadena finaliza con el parámetro.
+        alert ("Acaba daw con la palabra 'aplicaciones'? "+daw.endsWith("aplicaciones"));
+    
+        //CONCATENACIÓN Y REPETICIÓN
+        //concat(&lt;cadena&gt;): concatena a la cadena el parámetro:
+        alert ("Concatena daw con dam \n"+daw.concat(dam));
+        //repeat(&lt;número&gt;): repetir la cadena el número de veces que aparece como parámetro
+        alert ("Repetir daw \n"+daw.repeat(3));
+    
+        //EXTRACCION
+        //slice(&lt;posicion inicial&gt;,&lt;posicion final&gt;): devuelve la cadena 
+        //comprendida entre ambas posiciones:
+        alert ("La cadena que hay entre el 0 y el 1 en daw es: "+daw.slice(0,1));
+        //substring(&lt;posicion inicial&gt;,&lt;posicion final&gt;): devuelve la cadena 
+        //comprendida entre ambas posiciones:
+        alert ("La cadena que hay entre el 0 y el 1 en daw es: "+daw.substring(0,1));
+        //substr(&lt;posicion inicial&gt;,&lt;número de caracteres&gt;): devuelve la cadena
+        // comprendida entre la posición inicial y el número de caracteres:
+        alert ("La cadena de 5 caracteres que hay a partir del caracter 7 es: "+daw.substr(5,7));
+        //split(&lt;caracter&gt;,[&lt;número de veces]): divide la cadena en un array de 
+        // subcadenas separadas por el caracter del primer parámetro
+        alert("La cadena daw separada por espacios es: "+daw.split(" ",2));
+        //trim(&lt;cadena&gt;): extrae los caracteres de la cadena eliminando los espacios del 
+        //principio y del final.
+        alert ("La cadena sin espacios quedaría: \n"+"             Hola, caracola               ".trim());
+    
+        //MÁYÚSCULAS Y MINÚSCULAS
+        //toLowerCase(): devuelve la cadena en minúsculas:
+        alert (daw.toLowerCase());
+        //toUpperCase(): devuelve la cadena en mayúsculas:
+        alert (daw.toUpperCase());
+    
+        //MÉTODOS ESPECIALES:
+        //toString: devuelve el valor del objeto String.
+        //valueOf: devuelve el valor primitivo del objeto.
+    
+        &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Objetos nativos. Number</p>
+<p class="font-weight-normal">
+    CARACTERÍSTICAS:<br/>
+        - Solo hay un tipo de datos numérico.<br/>
+        - Podemos representar: 34, 34.05, 123e4, 123e-4, 0xFF <br/>
+    </p>
+<pre class="code-js">
+    <code>
+
+        &lt;script&gt;
+        /* CARACTERÍSTICAS:
+        - Solo hay un tipo de datos numérico.
+        - Podemos representar: 34, 34.05, 123e4, 123e-4, 0xFF */
+
+        //CAMBIO DE BASE ENTRE NÚMEROS: toString()
+        var base10 = 128;
+        alert (base10+" en base 2 es "+base10.toString(2));
+        alert (base10+" en base 8 es "+base10.toString(8));
+        alert (base10+" en base 16 es "+base10.toString(16));
+
+        //INFINITO Y -INFINITO: Infinity, -Infinity
+        var inf = 2;
+        while (inf != Infinity){
+            alert (inf);
+            inf = inf*inf; //inf *= inf;
+        }
+
+        var div1 = 2, div2 = 0;
+        alert ("División 2/0="+2/0);
+        alert ("División -2/0="+(-2/0));
+        alert ("Typeof: "+(div1/div2));
+
+        //NOT A NUMBER: NaN
+        var atipico = 100/"casa";
+        var atipico2 = 100/"10";
+        alert ("100/'casa'="+atipico);
+        alert ("100/'10'="+atipico2);
+        alert ("¿Es un NaN atipico? "+isNaN(atipico));
+        alert ("¿De qué tipo es NaN? "+typeof(atipico));
+
+        //NÚMEROS COMO OBJETOS
+        var num = 123;
+        var num2 = new Number(123);
+        var num3 = new Number(123);
+        alert ("num: "+typeof(num)); //Devuelve number
+        alert ("num2: "+typeof(num2)); //Deuelve object
+        alert ("num == num2: "+(num==num2));
+        alert ("num === num2: "+(num===num2));
+        alert ("num2 === num3: "+(num3===num2));
+
+        //PROPIEDADES
+        var maximo = Number.MAX_VALUE; alert("Maximo="+maximo);
+        var minimo = Number.MIN_VALUE; alert("Mínimo="+minimo);
+        var neginf = Number.NEGATIVE_INFINITY; alert("-Inf="+neginf);
+        var posinf = Number.POSITIVE_INFINITY; alert("+Inf="+posinf);
+        var numnan = Number.NaN; alert ("NaN="+numnan);
+
+        //MÉTODOS:
+        //toFixed(&lt;num decimales&gt;): cadena con el número específico de decimales indicado:
+        var x = 9.8765;
+        alert (x.toFixed(0));
+        alert (x.toFixed(2));
+        alert (x.toFixed(6));
+
+        //toPrecision(&lt;num cifras&gt;): cadena con el número específico de cifras indicado:
+        var y = 9.8765;
+        alert (y.toPrecision());
+        alert (y.toPrecision(2));
+        alert (y.toPrecision(6));
+
+        //toExponential: cadena con el número redondeado a notación científica.
+        var z = 123456789;
+        alert (z.toExponential(2));
+
+        //valueOf: devuelve el valor primitivo de un objeto.
+        //toString: devuelve la cadena de un número.
+        var j = 123;
+        alert(j.toString());
+        alert((123).toString());
+        alert((123+7).toString());
+
+        //MÉTODOS GLOBALES PARA CONVERTIR VARIABLES EN NÚMEROS:
+        //Number(): devuelve el valor numérico de una variable:
+        alert (Number(true)); // Devuelve 1
+        alert (Number(false)); // Devuelve 0
+        alert (Number(new Date())); // Devuelve el número de milisegundos desde el día 1/1/1970
+        alert (Number("10")); // Devuelve el número de la cadena
+        alert (Number("casa")); // Devuelve NaN
+
+        //parseInt() / parseFloat():
+        alert (parseInt("10.6")); //Devuelve el número
+        alert(parseInt("10 20")); //Devuelve el primer número
+        alert(parseInt("10 casa")); //Devuelve el primer número
+        alert(parseInt("casa 10")); //Devuelve NaN
+
+        &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Objetos nativos. Math</p>
+<p class="font-weight-normal">
+    /* CARACTERÍSTICAS: <br/>
+    - Permite realizar operaciones matemáticas.<br/>
+    - No es un constructor: NO usamos var x = new Math();<br/>
+    - Ej: var pi = Math.PI; var raiz = Math.sqrt(36); */<br/>
+</p>
+<pre class="code-js">
+    <code>
+
+		&lt;script&gt;
+			/* CARACTERÍSTICAS:
+			- Permite realizar operaciones matemáticas.
+			- No es un constructor: NO usamos var x = new Math();
+			- Ej: var pi = Math.PI; var raiz = Math.sqrt(36); */
+
+			//PROPIEDADES:
+			// E, LN2, LN10, LOG2E, LOG10E, PI, SQRT1_2, SQRT2
+			var pi = Math.PI;
+			alert ("El número PI vale: "+pi);
+
+			//MÉTODOS MÁS COMUNES:
+			//random(): Devuelve un número aleatorio entre 0 y 1
+			alert ("Número aleatorio: "+Math.random());
+
+			//max(&lt;lista de valores&gt;) // min (&lt;lista de valores&gt;)
+			alert ("Máximo de valores: "+Math.max(1,5,3,9,6));
+			alert ("Mínimo de valores: "+Math.min(1,5,3,9,6));
+
+			//round(&lt;número&gt;): redondeo al alza o a la baja
+			var a = 4.3;
+			var b = 4.7;
+			var c = 4.5;
+			alert ("Redondeo de "+c+" es: "+Math.round(c));
+
+			//ceil(&lt;número&gt;): redondea siempre al alza:
+			alert ("Redondeo de "+a+" es: "+Math.ceil(a));
+
+			//floor(&lt;número&gt;): redondea siempre a la baja:
+			alert ("Redondeo de "+b+" es: "+Math.floor(b));
+
+			//Número aleatorio entre 0 y 10:
+			var aleatorio = Math.floor(Math.random()*11);
+			alert ("Aleatorio es: "+aleatorio); 
+
+			//pow(&lt;base&gt;,&lt;exponente&gt;): devuelve el valor de la potencia
+			alert ("La potencia de 3 al cuadrado es: "+Math.pow(3,2));
+
+			//sqrt(&lt;numero&gt;): devuelve la raíz del número:
+			alert("Raíz de 36 es: "+Math.sqrt(36));
+
+			//abs(&lt;número&gt;): devuelve el valor absoluto de un número
+			alert ("Valor absoluto de -5: "+Math.abs(-5));
+
+			//Métodos trigonmétricos:
+			//sin, cos, tan, asin, acos, atan, atan2
+
+        &lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Objetos nativos. Date </p>
+<p class="font-weight-normal">
+    /* CREACIÓN DE OBJETOS DE TIPO DATE.<br/>
+    Nota: los meses comienzan en 0. Los días de la semana <br/>
+    también, siendo el 0 el domingo, el 1 el lunes... */<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;script&gt;
+			/* CREACIÓN DE OBJETOS DE TIPO DATE.
+			Nota: los meses comienzan en 0. Los días de la semana también, siendo el 0 el domingo, el 1 el lunes... */
+
+			//Creación de fecha actual:
+			var actual = new Date();
+			alert(actual);
+
+			//Creación de fecha con cadenas:
+			var d1 = new Date("Wed Mar 25 2015 09:23:45 GMT +0100 (W. Europe Standard Time)"); //Ignora si el día de la semana está mal o los paréntesis
+			var d2 = new Date("October 12, 2016 10:30:00");
+			var d3 = new Date("January 25 2015");
+			var d4 = new Date("Jan 25 2015"); //También "25 Jan 2015"
+			//Podemos utilizar comas porque se ignoran
+			var d5 = new Date("2016-05-12T12:34:25");
+			var d6 = new Date("2016-05-12"); // YYYY-MM-DD
+			var d7 = new Date("2016/05/12"); //YYYY/MM/DD o DD/MM/YYYY
+			var d8 = new Date("2016-05"); //El día se sustiye por 1
+			var d9 = new Date("2016"); //El día y el mes se sustituyen por 1
+			//¡OJO! Incluimos 0 en días/meses inferiores a 10
+			alert (d1);
+			alert (d2);
+			alert (d3);
+			alert (d4);
+			alert (d5);
+			alert (d6);
+			alert (d7);
+			alert (d8);
+			alert (d9);
+
+			//Creación de fecha con milisegundos
+			var dms = new Date(86400000);
+			alert ("Fecha en ms: "+dms);
+
+			//Creación de fechas con números
+			var fechaLargo = new Date(2015,11,10,14,30,25);
+			var fechaCorto = new Date(2015,11,10);
+			alert ("Fecha largo: "+fechaLargo+ " Fecha corto: "+fechaCorto);
+
+			var fecha = new Date();
+			alert ("Fecha: "+fecha);
+			alert ("toString: "+fecha.toString());
+			alert ("toUTCString: "+fecha.toUTCString());
+			alert ("toDateString: "+fecha.toDateString());
+
+			//MÉTODOS GET
+			var fc = new Date("October 1, 2016 10:30:20");
+			alert(fc.getDay()+" "+fc.getDate()+"/"+fc.getMonth()+"/"+fc.getFullYear());
+			alert(fc.getHours()+":"+fc.getMinutes()+":"+fc.getSeconds()+":"+fc.getMilliseconds());
+			alert("Ms desde 1/1/1970: "+fc.getTime());
+
+			//MÉTODOS SET
+			fc.setDate(31);
+			fc.setMonth(11);
+			fc.setFullYear(2031);
+			fc.setHours(23);
+			fc.setMinutes(59);
+			fc.setSeconds(59);
+			fc.setMilliseconds(59);
+			//fc.setTime(&lt;ms&gt;); //Modificaríamos la fecha y la hora contando los milisegundos desde el 1/1/1970
+			alert(fc.toString());
+
+			//Ejemplo de cálculo de horas
+			fc.setMonth(fc.getMonth()+3);
+			alert(fc.toString());
+
+		&lt;/script&gt;
+    </code>
+</pre>
+
+<p class="font-weight-bold">Objetos nativos. Boolean</p>
+<pre class="code-js">
+    <code>
+		&lt;script&gt;
+		//Función Boolean()
+		alert (10&gt;9);
+
+		//Todos los valores reales son ciertos
+		alert("100 es "+Boolean(100));
+		alert("3.4 es "+Boolean(3.4));
+		alert("Hola es "+Boolean("Hola"));
+		alert("false "+Boolean("false"));
+		alert("-15 es "+Boolean(-15));
+		alert("5&lt;6 es "+Boolean(5&gt;6));
+
+		//Todos los valores que no son reales son falsos
+		alert("0 es "+Boolean(0));
+		alert("-0 es "+Boolean(-0));
+		alert("undefined es "+Boolean(undefined));
+		alert("null es "+Boolean(null));
+		alert("false es "+Boolean(false));
+		alert("NaN es "+Boolean(NaN));
+
+		var g;
+		if (!g) // Es equivalente a g==undefined
+		{
+			alert ("La g no está definida");
+		}
+		&lt;/script&gt;
+</code>
+</pre>
+
+<p class="font-weight-bold">Objetos del navegador. Window</p>
+<p class="font-weight-normal">
+/* CARACTERÍSTICAS:<br/>
+- Representa una ventana abierta en un navegador.<br/>
+- Si una ventana tiene etiquetas de tipo &lt;iframe&gt; <br/>
+  el navegador crea un objeto window para el html inicial y uno para cada &lt;iframe&gt;<br/>
+- Todos los objetos, funciones, variables... son miembros del objeto window: las funciones <br/>
+  son sus métodos; las variables globales y el DOM sos propiedades. <br/>
+- No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad.*/<br/>
+</p>
+<pre class="code-js">
+    <code>
+
+            &lt;p id="ventana"&gt;&lt;/p&gt;
+        
+            &lt;script&gt;
+                
+                //PROPIEDADES BÁSICAS DE WINDOW
+                window.name = "Mi ventana";
+                var texto = "";
+                //Nombre de la ventana
+                texto += "&lt;br/&gt;Nombre: "+window.name;
+                //Tamaño de la ventana con toolbar y scrollbar
+                texto += "&lt;br/&gt;Ancho externo: "+window.outerWidth;
+                texto += "&lt;br/&gt;Alto externo: "+window.outerHeight;
+                //Tamaño de la ventana sin toolbar ni scrollbar
+                texto += "&lt;br/&gt;Ancho interno: "+window.innerWidth;
+                texto += "&lt;br/&gt;Alto interno: "+window.innerHeight;	
+                //Scroll horizontal y vertical
+                texto += "&lt;br/&gt;Scroll horizontal: "+window.pageXOffset;
+                texto += "&lt;br/&gt;Scroll vertical: "+window.pageYOffset;	
+                //Distancia de la esquina superior izquierda
+                texto += "&lt;br/&gt;Distancia desde la izquierda: "+window.screenX;
+                texto += "&lt;br/&gt;Distancia desde arriba: "+window.screenY;	
+                
+                document.getElementById("ventana").innerHTML = texto;
+                
+                /* PROPIEDADES CON IFRAMES:
+                -frames: devuelve todos los elementos iframe de la ventana.
+                - frameElement: devuelve el frame en el que la ventana está insertada.
+                - length: devuelve el número de frames que tiene la ventana. */
+    
+                /*PROPIEDADES CON OTRAS VENTANAS:
+                - closed: devuelve un booleano si la ventana está cerrada.
+                - opener: devuelve una referencia con la ventana que creó la ventana actual. 
+                - parent: devuelve la ventana padre de la ventana actual.
+                - self: devuelve la ventana actual. */
+    
+                /* OTROS OBJETOS DEL NAVEGADOR:
+                window.document
+                window.navigator
+                window.screen
+                window.history
+                windon.location*/
+    
+                //MÉTODOS DE WINDOW MÁS IMPORTANTES
+                var miVentana; //Crear fuera de las funciones para poder acceder a ella
+    
+                //open(&lt;URL&gt;,&lt;nombre&gt;,&lt;especificaciones&gt;)
+                function crearVentana(){
+                    //miVentana=window.open("http://www.google.com");
+                    miVentana = window.open("","","width=500,height=200");
+                    miVentana.document.write("&lt;h1&gt;Mi ventana&lt;/h1&gt;");
+                }
+    
+                //close(): cierra una ventana en concreto
+                function cerrarVentana(){
+                    miVentana.close();
+                }
+    
+                //resizeBy(&lt;nºpix&gt;,&lt;nºpix&gt;): redimensiona una ventana un número de píxeles respecto a su tamaño actual
+                function redimensionarVentana(){
+                    miVentana.resizeBy(10,10);
+                }
+                //resizeTo(&lt;nºpix&gt;,&lt;nºpix&gt;): redimensiona una ventana al número de píxeles indicado
+    
+                //moveBy(&lt;nºpix&gt;,&lt;nºpix&gt;): mueve una ventana un número de píxeles respecto a su posición actual
+                function moverVentana(){
+                    miVentana.moveBy(10,10);
+                }
+                //moveTo(&lt;nºpix&gt;,&lt;nºpix&gt;): mueve una ventana a una posición en concreto
+    
+                //scrollBy(&lt;nºpix&gt;,&lt;nºpix&gt;): mueve las barras de scroll un número de píxeles desde la posición actual.
+                //scrollTo(&lt;nºpix&gt;,&lt;nºpix&gt;): mueve las barras de scroll un a una posición determinada
+    
+                //focus(): pone el foco en la ventana indicada
+                function enfocar(){
+                    miVentana.focus();
+                }
+    
+                //print(): imprime la ventana indicada
+                function imprimir(){
+                    //print();
+                    miVentana.print();
+                }
+    
+                //stop(): detener la carga de la página
+    
+                &lt;/script&gt;
+                &lt;button onclick="crearVentana()"&gt;Crear ventana&lt;/button&gt;
+                &lt;button onclick="cerrarVentana()"&gt;Cerrar ventana&lt;/button&gt;
+                &lt;button onclick="redimensionarVentana()"&gt;Redimensionar ventana&lt;/button&gt;
+                &lt;button onclick="moverVentana()"&gt;Mover ventana&lt;/button&gt;
+                &lt;button onclick="enfocar()"&gt;Enfocar ventana&lt;/button&gt;
+                &lt;button onclick="imprimir()"&gt;Imprimir ventana&lt;/button&gt;
+    
+    </code>
+</pre>   
+
+<p class="font-weight-bold">Objetos del navegador. Cuadros de diálogo</p>
+<pre class="code-js">
+    <code>
+
+        &lt;script&gt;
+            //alert(&lt;mensaje&gt;): muestra un mensaje al usuario y no devuelve ningún valor.
+            alert("Hola, caracola");
+      
+            //prompt(&lt;mensaje&gt;[,&lt;texto por defecto&gt;]): muestra un mensaje 
+            // al usuario y un campo que puede contener o no texto por defecto. 
+            //Lo que introduzca el usuario se almacenará en una variable a la que se asigna.
+            var respuesta = prompt("¿Cuál es tu nombre?", "Introduce un nombre");
+            alert ("Hola, "+respuesta);
+      
+            //confirm(&lt;mensaje&gt;): muestra un mensaje al usuario y dos botones.
+            // Si el usuario pulsa "Aceptar" devuelve true; si pulsa "Cancelar"
+            // o cierra la ventana devuelve false.
+            var respuesta2 = confirm("¿Te gusta javascript?");
+            //if (respuesta2==true) alert ("¡Me alegro!");
+            //else alert ("¡Pues es una pena!");
+            alert((respuesta2) ? "¡Me alegro!" : "¡Pues es una pena!");
+      
+          </script>
+    </code>
+</pre>    
+
+<p class="font-weight-bold">Objetos del navegador. Window. Tiempo</p>
+<p class="font-weight-normal">
+    /* EVENTOS DE TIEMPO:<br/>
+    - El objeto window permite ejecutar código en intervalos de tiempo.<br/>
+    - Hay tres métodos: setTimeout, clearTimeout, setInterval */<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;p id="reloj"&gt;&lt;/p&gt;
+		&lt;script&gt;
+			/* EVENTOS DE TIEMPO:
+			- El objeto window permite ejecutar código en intervalos de tiempo.
+			- Hay tres métodos: setTimeout, clearTimeout, setInterval */
+
+			//setTimeout(&lt;funcion&gt;, &lt;milisegundos&gt;): se indicar cuántos segundos tiene que pasar antes de que la función indicada en el primer parámetro se ejecute.
+			function saludar(){
+				alert ("¡Hola!");
+			}
+
+			//clearTimeout(&lt;variable timeout&gt;): si asignamos un setTimeout a una variable podemos detener su ejecución con clearTimeout.
+
+			//setInterval(&lt;funcion&gt;, &lt;milisegundos&gt;): repite una función cada intervalo de tiempo.
+			var int = setInterval(reloj, 1000);
+
+			function reloj(){
+				var fecha = new Date(); //Fecha actual
+				document.getElementById("reloj").innerHTML = fecha.getSeconds();
+			}
+
+
+		&lt;/script&gt;
+		&lt;button onclick="setTimeout(saludar,3000)"&gt;Saluda&lt;/button&gt;
+		&lt;button onclick="sal = setTimeout(saludar,3000)"&gt;Saluda con variable&lt;/button&gt;
+		&lt;button onclick="clearTimeout(sal)"&gt;Cancelar saludo&lt;/button&gt;
+		&lt;button onclick="clearTimeout(int)"&gt;Cancelar reloj&lt;/button&gt;
+    </code>
+</pre>    
+
+<p class="font-weight-bold">Objetos del navegador. Window. Tiempo</p>
+<p class="font-weight-normal">
+    /* CARACTERÍSTICAS:<br/>
+        - Guarda información sobre el navegador.<br/>
+        - No hay un estándar público pero la mayoría de <br/>
+        los navegadores soportan este objeto. */<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;p id="navegador"&gt;&lt;/p&gt;
+        &lt;script&gt;
+        /* CARACTERÍSTICAS:
+        - Guarda información sobre el navegador.
+        - No hay un estándar público pero la mayoría de los navegadores soportan este objeto. */
+
+        //PROPIEDADES DEL OBJETO NAVIGATOR:
+        var texto = "";
+        //appCodeName: codeName del navegador
+        texto += "&lt;br/&gt;CodeName: "+navigator.appCodeName;
+        //appName: nombre del navegador
+        texto += "&lt;br/&gt;Name: "+navigator.appName;
+        //appVersion: versión del navegador
+        texto += "&lt;br/&gt;Version: "+navigator.appVersion;
+        
+        //product: motor del navegador
+        texto += "&lt;br/&gt;Motor: "+navigator.product;
+        //platform: plataforma del navegador
+        texto += "&lt;br/&gt;Plataforma: "+navigator.platform;
+        //onLine: navegador online/offline
+        texto += "&lt;br/&gt;OnLine: "+navigator.onLine;
+
+        //language: idioma del navegador
+        texto += "&lt;br/&gt;Idioma: "+navigator.language;
+        //cookieEnabled: cookies activadas
+        texto += "&lt;br/&gt;Cookies: "+navigator.cookieEnabled;
+        //userAgent: cabecera user-agent devuelta por el navegador al servidor
+        texto += "&lt;br/&gt;UserAgent: "+navigator.userAgent;
+        document.getElementById("navegador").innerHTML = texto;
+
+        //geolocation: devuelve un objeto geolocation que puede servir para localizar la posición del usuario. 
+
+        //MÉTODO DEL OBJETO NAVIGATOR:
+        //javaEnabled(): devuelve true o false si está activado Java.
+        alert("Java activado: "+navigator.javaEnabled());
+
+        &lt;/script&gt;
+    </code>
+</pre>    
+
+<p class="font-weight-bold">Objetos del navegador. Screen</p>
+<p class="font-weight-normal">
+    /* CARACTERÍSTICAS:<br/>
+        - Contiene la información de la ventana del visitante.<br/>
+        - No hay un estándar público pero la mayoría de los navegadores soportan Screen */<br/>
+</p>
+<pre class="code-js">
+    <code>
+    &lt;p id="pantalla"&gt;&lt;/p&gt;
+        &lt;script&gt;
+           /* CARACTERÍSTICAS:
+            - Contiene la información de la ventana del visitante.
+            - No hay un estándar público pero la mayoría de los navegadores soportan Screen */
+
+            //PROPIEDADES DEL OBJETO SCREEN
+            var texto = "";
+
+            //Tamaño pantalla
+            texto += "&lt;br/&gt;Ancho: "+screen.width; 
+            texto += "&lt;br/&gt;Alto: "+screen.height;
+
+            //Tamaño pantalla sin barra de tareas
+            texto += "&lt;br/&gt;Ancho sin barra: "+screen.availWidth; 
+            texto += "&lt;br/&gt;Alto sin barra: "+screen.availHeight;
+
+            //Profundidad de color de la pantalla
+            texto += "&lt;br/&gt;Profundidad: "+screen.colorDepth; 
+
+            //Resolución de color en bits por píxel
+            texto += "&lt;br/&gt;Resolución: "+screen.pixelDepth;
+
+            document.getElementById("pantalla").innerHTML = texto;
+
+        &lt;/script&gt;
+    </code>
+</pre>
+
+<p class="font-weight-bold">Objetos del navegador. Screen</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Objetos del navegador. History</p>
+<p class="font-weight-normal">
+    /* CARACTERÍSTICAS:<br/>
+    - Guarda información de las URLs visitadas por el usuario dentro de una ventana del explorador.<br/>
+    - No hay un estándar público pero la mayoría de los navegadores soportan este objeto. */<br/>
+</p>
+<pre class="code-js">
+    <code>
+		&lt;script&gt;
+			/* CARACTERÍSTICAS:
+			- Guarda información de las URLs visitadas por el usuario dentro de una ventana del explorador.
+			- No hay un estándar público pero la mayoría de los navegadores soportan este objeto. */
+
+			//PROPIEDADES DEL OBJETO HISTORY
+			//length: número de URLs en el historial de la página.
+			alert("URLs del historial: "+history.length);
+
+			//MÉTODOS DEL OBJETO HISTORY
+			//back: carga la url anterior en el historial
+			function atras(){
+				history.back();
+			}
+
+			//forward: cargar la url siguiente en el historial
+			function adelante(){
+				history.forward();
+			}
+
+			//go(&lt;numero|url&gt;): va a una página concreta del historial. Si indicamos un número positivo va hacia delante un nº de páginas; si indicamos un número negativo va hacia atrás un nº de páginas; si indicamos una url o parte de ella va a la url en concreto.
+			function ir(){
+				var numero = prompt("Indica un número para moverte en el historial");
+				history.go(numero);
+			}
+
+		&lt;/script&gt;
+		&lt;button onclick="atras()"&gt;Atrás&lt;/button&gt;
+		&lt;button onclick="adelante()"&gt;Adelante&lt;/button&gt;
+		&lt;button onclick="ir()"&gt;Ir a una página&lt;/button&gt;
+    </code>
+</pre>  
+
+
+
+
+        <p class="font-weight-bold">Objetos del navegador. Location</p>
+        <p class="font-weight-normal">
+            /* CARACTERÍSTICAS:<br/>
+            - Guarda información de la URL actual.<br/>
+            - No hay un estándar público pero la mayoría <br/>
+            de los navegadores soportan este objeto. */<br/>
+        </p>
+        <pre class="code-js">
+            <code>
+                &lt;p id="location"&gt;&lt;/p&gt;
+                &lt;script&gt;
+                /* CARACTERÍSTICAS:
+                - Guarda información de la URL actual.
+                - No hay un estándar público pero la mayoría de los navegadores soportan este objeto. */
+        
+                //PROPIEDADES DEL OBJETO LOCATION
+                var texto = "";
+                //href: HREF (URL) de la página
+                texto += "&lt;br/&gt;Href: "+location.href;
+                //hostname: nombre del host de la página
+                texto += "&lt;br/&gt;Hostname: "+location.hostname;
+                //pathname: pathname de la página
+                texto += "&lt;br/&gt;Pathname: "+location.pathname;
+                //protocol: protocolo de la página
+                texto += "&lt;br/&gt;Protocol: "+location.protocol;
+                //hash: hash o ancla de la página (Ej. www.web.com/index.html#indice)
+                texto += "&lt;br/&gt;Hash: "+location.hasg;
+        
+                //host: nombre del hostname y el puerto
+                texto += "&lt;br/&gt;Host: "+location.host;
+                //origin: nombre del protocolo, hostname y el puerto
+                texto += "&lt;br/&gt;Origin: "+location.origin;
+                //search: querystring de la página (Ej. www.web.com/index.html?user=ada)
+                texto += "&lt;br/&gt;Search: "+location.search;
+                document.getElementById("location").innerHTML = texto;
+        
+                //MÉTODOS DEL OBJETO LOCATION
+                //assign(&lt;url&gt;): asigna un nuevo documento a la página
+                function nuevoDocumento(){
+                    location.assign("http://www.google.com")
+                }
+        
+                //reload(): recarga la página
+                function recarga(){
+                    location.reload()
+                }
+        
+                //replace(&lt;url&gt;): sustituye la página por otra. DESAPARECE SU HISTORIAL.
+                function sustituye(){
+                    location.replace("http://www.google.com");
+                }
+                &lt;/script&gt;
+                &lt;button onclick="nuevoDocumento()"&gt;Carga un nuevo documento&lt;/button&gt;
+                &lt;button onclick="recarga()"&gt;Recarga la página&lt;/button&gt;
+                &lt;button onclick="sustituye()"&gt;Sustituye la página&lt;/button&gt;
+    
+            </code>
+        </pre>  
+        
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
+        
+        </p>
+        <pre class="code-js">
+            <code>
+            </code>
+        </pre>  
+        
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
+        
+        </p>
+        <pre class="code-js">
+            <code>
+            </code>
+        </pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
