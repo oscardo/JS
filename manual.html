@@ -2590,6 +2590,252 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
 
 <h1>5. DOM</h1>
 
+<p class="font-weight-bold">Document Object Model - Creación y modificación de elementos</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Document Object Model - Creación y modificación de elementos&lt;/title&gt;
+        &lt;meta charset="UTF-8"&gt;
+		&lt;style&gt;
+            .miClase{
+                color:red;
+            }
+        &lt;/style&gt;
+        &lt;script&gt;
+            window.addEventListener("load",inicio);
+            
+            function inicio(){
+                document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+                document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+                document.getElementById("quitarClases").addEventListener("click",quitarClases);
+            }
+            
+            function cambiarTextos(){
+                //Selecciónar UN UNICO elemento según su id
+                document.getElementById("parrafo1").innerHTML = "Primer párrafo cambiado";
+                //Selecionar TODOS los elementos según su etiqueta
+                document.getElementsByTagName("p")[1].innerHTML = "Segundo párrafo cambiado";
+                //Seleccionar TODOS los elementos según su clase
+                document.getElementsByClassName("miClase")[0].innerHTML = "Tercer párrafo cambiado";
+                
+                //Seleccionar un elemento dentro de otro
+                var principal = document.getElementById("main");
+                var parrafo1 = principal.getElementById("parrafo1");
+                
+                //Sleecionar el PRIMER elemento con un selector CSS
+                /*document.querySelector("p.miClase");
+                document.querySelector("p.miClase")[0];*/
+            }
+            
+            function cambiarClases(){
+                document.getElementById("parrafo1").setAttribute("class","miClase");
+                document.getElementById("parrafo2").className = "miClase";
+            }
+            
+            function quitarClases(){
+                for(var i = 0; i&lt;document.getElementsByTagName("p").length; i++){
+                    document.getElementsByTagName("p")[i].className="";
+                }
+            }
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="main"&gt;
+            &lt;p id="parrafo1"&gt;Este es el primer párrafo&lt;/p&gt;
+            &lt;p id="parrafo2"&gt;Este es el segundo párrafo&lt;/p&gt;
+            &lt;p id="parrafo3" class="miClase"&gt;Este es el tercer párrafo&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;br/&gt;
+        &lt;button id="cambiarTextos"&gt;Cambiar texto de párrafos&lt;/button&gt;
+        &lt;button id="cambiarClases"&gt;Cambiar clases de párrafos&lt;/button&gt;
+        &lt;button id="quitarClases"&gt;Quitar clases de todos los párrafos&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Document Object Model</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;Document Object Model&lt;/title&gt;
+    &lt;style&gt;
+        .miClase {
+            color: red;
+        }
+    &lt;/style&gt;
+    &lt;script&gt;
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("sustituirPrimeroVacio").addEventListener("click", sustituirPrimero);
+        }
+
+        function crearParrafo() {
+            //Crear elemento
+            var parrafo = document.createElement("p");
+            //Crear texto
+            var texto = document.createTextNode(document.getElementById("texto").value);
+            parrafo.appendChild(texto);
+
+            //Añadir atributos
+            parrafo.setAttribute("class", "miClase");
+            //parrafo.className = "miClase";
+
+            var cont = document.getElementById("div1");
+            cont.appendChild(parrafo);
+        }
+
+        function crearImagen() {
+            //Crear elemento
+            var imagen = document.createElement("img");
+
+            //Añadir atributos
+            var ruta = prompt("Introduce la ruta");
+            imagen.setAttribute("alt", prompt("Introduce el texto alternativo"));
+            imagen.src = ruta;
+
+            var cont = document.getElementById("div1");
+            cont.appendChild(imagen);
+        }
+
+        function borrarUltimo() {
+            var cont = document.getElementById("div1");
+            var hijo = cont.lastChild; //Seleccionar el último hijo
+            //Elimina un elemento hijo
+            cont.removeChild(hijo);
+        }
+
+        function borrarPrimero() {
+            var cont = document.getElementById("div1");
+            var hijo = cont.firstChild; //Seleccionar el primer hijo
+            //Elimina un elemento hijo
+            cont.removeChild(hijo);
+        }
+
+        function sustituirPrimero() {
+            var cont = document.getElementById("div1");
+            var parrafo = document.createElement("p").appendChild(document.createTextNode("Vacio"));
+
+            //Sustituir un elemento
+            cont.replaceChild(parrafo, cont.firstChild); //Nuevo, viejo
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id="div1"&gt;&lt;/div&gt;
+    &lt;br/&gt;
+    &lt;textarea id="texto"&gt;&lt;/textarea&gt;
+    &lt;br/&gt;
+    &lt;button id="crearParrafo"&gt;Crear parrafo&lt;/button&gt;
+    &lt;button id="crearImagen"&gt;Crear imagen&lt;/button&gt;
+    &lt;button id="borrarUltimo"&gt;Borrar ultimo&lt;/button&gt;
+    &lt;button id="borrarPrimero"&gt;Borrar primero&lt;/button&gt;
+    &lt;button id="sustituirPrimeroVacio"&gt;Sustituir primer párrafo por vacío&lt;/button&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">Document Object Model</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;Document Object Model&lt;/title&gt;
+    &lt;script&gt;
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            for (var i = 0; i &lt; document.getElementsByTagName("h2").length; i++) {
+                document.getElementsByTagName("h2")[i].addEventListener("click", recorrerAdelante);
+            }
+        }
+
+        function recorrerAdelante(e) {
+            var texto = "";
+            var h2 = e.target;
+            texto += "Has elegido " + h2.textContent;
+
+            //Seleccionamos el padre
+            var padre = h2.parentElement;
+            texto += " que está situada en el " + padre.id + "&lt;br/&gt;";
+
+            //Seleccionamos el hermano
+            //var ul = h2.nextSibling; //No lo utilizamos porque incluye nodos de tipo texto
+            var ul = h2.nextElementSibling;
+
+            //Mostrar el número de hijos
+            //¡OJO! .childNodes incluye texto y comentarios; children no.
+            texto += "El número de provincias es " + ul.children.length + ": ";
+
+            var hijo = ul.firstChild;
+            //Si quisiéramos seleccionar el último hijo, pondríamos .lastChild.
+
+            while (hijo != null) {
+                texto += " " + hijo.textContent;
+                hijo = hijo.nextElementSibling;
+                //Si quisiéramos seleccionar el hermano anterior, pondríamos .previousElementSibling
+            }
+
+            //Mostramos el texto
+            document.getElementById("texto").innerHTML = texto;
+            //Si ponemos .textContent mostraríamos texto plano, y no coge etiquetas html.
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id="norte"&gt;
+        &lt;h2&gt;Galicia&lt;/h2&gt;
+        &lt;ul id="lista"&gt;
+            &lt;li&gt;A Coruña&lt;/li&gt;
+            &lt;li&gt;Lugo&lt;/li&gt;
+            &lt;li&gt;Ourense&lt;/li&gt;
+            &lt;li&gt;Pontevedra&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id="sur"&gt;
+        &lt;h2&gt;Canarias&lt;/h2&gt;
+        &lt;ul id="lista"&gt;
+            &lt;li&gt;Santa Cruz de Tenerife&lt;/li&gt;
+            &lt;li&gt;Las Palmas&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id="texto"&gt;&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </code>
+</pre>  
+
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
 
@@ -2599,6 +2845,113 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
     </code>
 </pre>  
 
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
+
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+    </code>
+</pre>  
 
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
