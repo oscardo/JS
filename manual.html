@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
     <title>Manual de JS</title>
 </head>
 
@@ -110,13 +110,13 @@
 
     <p class="font-weight-bold">VARIABLES EN JAVASCRIPT</p>
     <p class="font-weight-normal">
-        <br/>
-        - Identificadores únicos.<br/>
-		- Recomendable utilizar identificadores descriptivos.<br/>
-		- Empiezan por letra, $, _ y siguen con letra, número, $ o _.<br/>
-		- Pueden contener cadenas ("", '') y números (enteros o decimales)<br/>
-		- Son sensibles a las mayúsculas (nombre != NOMBRE != Nombre)<br/>
-		- No pueden utilizarse palabras reservadas <br/>
+        <br />
+        - Identificadores únicos.<br />
+        - Recomendable utilizar identificadores descriptivos.<br />
+        - Empiezan por letra, $, _ y siguen con letra, número, $ o _.<br />
+        - Pueden contener cadenas ("", '') y números (enteros o decimales)<br />
+        - Son sensibles a las mayúsculas (nombre != NOMBRE != Nombre)<br />
+        - No pueden utilizarse palabras reservadas <br />
     </p>
     <pre class="code-js">
     <code>
@@ -138,7 +138,7 @@
         document.getElementById("parrafo3").innerHTML = nombreApellido + " nació en " + pais + " en " + nacimiento + " y murió en " + fallecimiento;
     </code>
     </pre>
-    <br/>
+    <br />
     <p class="font-weight-bold">Operadores aritméticos en Javascript</p>
     <pre class="code-js">
         <code>
@@ -178,7 +178,7 @@
             &lt;/script&gt;
         </code>
     </pre>
-    <p class="font-weight-bold">Operadores de asignación en Javascript</p>    
+    <p class="font-weight-bold">Operadores de asignación en Javascript</p>
     <pre class="code-js">
         <code>
             &lt;script&gt;
@@ -203,7 +203,7 @@
             &lt;/script&gt;
         </code>
     </pre>
-    <p class="font-weight-bold">Operadores de cadena</p>    
+    <p class="font-weight-bold">Operadores de cadena</p>
     <pre class="code-js">
         <code>
             &lt;script&gt;
@@ -225,7 +225,7 @@
         </code>
     </pre>
 
-    <p class="font-weight-bold">Operadores de comparación</p>    
+    <p class="font-weight-bold">Operadores de comparación</p>
     <pre class="code-js">
         <code>
 
@@ -267,8 +267,8 @@
     </code>
     </pre>
 
-    <p class="font-weight-bold">Operadores lógicos en Javascript/p>    
-    <pre class="code-js">
+    <p class="font-weight-bold">Operadores lógicos en Javascript/p>
+        <pre class="code-js">
         <code>
         &lt;script&gt;
 			//OPERADOR AND / Y (&&)
@@ -289,8 +289,8 @@
         </code>
     </pre>
 
-    <p class="font-weight-bold">Operador ternario</p>    
-    <pre class="code-js">
+        <p class="font-weight-bold">Operador ternario</p>
+        <pre class="code-js">
         <code>
         &lt;script&gt;
 			// (CONDICION) ? RESULTADO_CIERTO : RESULTADO_FALSO
@@ -301,7 +301,7 @@
         </code>
         </pre>
 
-        <p class="font-weight-bold">Operadores de tipos en Javascript</p>        
+        <p class="font-weight-bold">Operadores de tipos en Javascript</p>
         <pre class="code-js">
             <code>
 		    &lt;script&gt;
@@ -324,8 +324,8 @@
             &lt;/script&gt;
             </code>
         </pre>
-    
-        <p class="font-weight-bold">Tipos de datos en Javascript</p>        
+
+        <p class="font-weight-bold">Tipos de datos en Javascript</p>
         <pre class="code-js">
             <code>
             &lt;script&gt;
@@ -375,8 +375,8 @@
         </code>
     </pre>
 
-    <p class="font-weight-bold">Funciones - Introducción</p>        
-    <pre class="code-js">
+        <p class="font-weight-bold">Funciones - Introducción</p>
+        <pre class="code-js">
         <code>
             &lt;script&gt;
                 // SINTAXIS DE UNA FUNCION
@@ -414,8 +414,8 @@
         </code>
     </pre>
 
-    <p class="font-weight-bold">Funciones anónimas</p>        
-    <pre class="code-js">
+        <p class="font-weight-bold">Funciones anónimas</p>
+        <pre class="code-js">
         <code>
     &lt;script&gt;
     //Sintaxis de una función no anónima
@@ -438,23 +438,24 @@
     </code>
     </pre>
 
-    <p class="font-weight-bold">Parámetros de funciones</p>
-    <p class="font-weight-normal">
-        PARÁMETROS Y ARGUMENTOS:<br/>
-		- Función puede tener cero o más parámetros.<br/>
-		- Parámetros son los nombres que aparecen en la definición de una función.<br/>
-		- Argumentos con los valores que pasamos a (y que recibe) una función<br/>
-        <br/>
-		REGLAS DE LOS PARÁMETROS:<br/>
-		- No se especifica el tipo de los parámetros.<br/>
-		- No se verifican los tipos de los argumentos.<br/>
-		- No se comprueba el número de los argumentos recibidos. <br/>
-        <br/>
-		//PARÁMETROS POR DEFECTO<br/>
-        //Cuando llamamos a una función con menos argumentos de los declarados. Los valores que faltan no están definidos.<br/>
-    </p>
+        <p class="font-weight-bold">Parámetros de funciones</p>
+        <p class="font-weight-normal">
+            PARÁMETROS Y ARGUMENTOS:<br />
+            - Función puede tener cero o más parámetros.<br />
+            - Parámetros son los nombres que aparecen en la definición de una función.<br />
+            - Argumentos con los valores que pasamos a (y que recibe) una función<br />
+            <br />
+            REGLAS DE LOS PARÁMETROS:<br />
+            - No se especifica el tipo de los parámetros.<br />
+            - No se verifican los tipos de los argumentos.<br />
+            - No se comprueba el número de los argumentos recibidos. <br />
+            <br />
+            //PARÁMETROS POR DEFECTO<br />
+            //Cuando llamamos a una función con menos argumentos de los declarados. Los valores que faltan no están
+            definidos.<br />
+        </p>
 
-    <pre class="code-js">
+        <pre class="code-js">
         <code>
             &lt;script&gt;
                 
@@ -484,17 +485,17 @@
         </code>
     </pre>
 
-    <p class="font-weight-bold">Ámbito de variables</p>
-    <p class="font-weight-normal">
-        //VARIABLES LOCALES<br/>
-        /* - Se define dentro de una función.<br/>
-           - Tienen ámbito local en la función.<br/>
-           - Son accesibles únicamente dentro de la función.<br/>
-           - Podemos declarar variables con el mismo nombre en diferentes funciones.<br/>
-           - Variable local desaparece cuando finaliza la función. <br/>
-    </p>
+        <p class="font-weight-bold">Ámbito de variables</p>
+        <p class="font-weight-normal">
+            //VARIABLES LOCALES<br />
+            /* - Se define dentro de una función.<br />
+            - Tienen ámbito local en la función.<br />
+            - Son accesibles únicamente dentro de la función.<br />
+            - Podemos declarar variables con el mismo nombre en diferentes funciones.<br />
+            - Variable local desaparece cuando finaliza la función. <br />
+        </p>
 
-    <pre class="code-js">
+        <pre class="code-js">
         <code>
       &lt;script&gt;
         //VARIABLES LOCALES
@@ -550,8 +551,8 @@
     &lt;/script&gt;
     </code>
     </pre>
-    <p class="font-weight-bold">Condicionales. Sentencias if...else</p>
-    <pre class="code-js">
+        <p class="font-weight-bold">Condicionales. Sentencias if...else</p>
+        <pre class="code-js">
         <code>
 
         
@@ -609,28 +610,28 @@
 </code>
 </pre>
 
-<p class="font-weight-bold">Condicionales. Sentencia switch</p>
-<p class="font-weight-normal">
-            /* SWITCH:<br/>
-			 - Se utiliza para hacer diferentes acciones basadas en diferentes condiciones. <br/>
-			 - La condición se evalúa una única vez.<br/>
-			 - Si hay alguna coincidencia con algún valor se ejecuta el bloque de código correspondiente.<br/>
-			 - Break: sale del bloque switch.<br/>
-			 - Default: se ejecuta en caso de que la expresión no coincide con ningún valor.<br/>
-			 */
-             <br/>
-			 /* SINTAXIS<br/>
-			 switch (<expresión>){<br/>
-				case valor_1: <br/>
-					//Instrucciones para valor_1<br/>
-					break;<br/>
-				case valor_n:<br/>
-					//Instrucciones para valor_n<br/>
-					break;<br/>
-				default: <br/>
-					//Instrucciones en caso de que no se cumpla ninguna condición.<br/>
-			 }*/<br/>
-</p>
+        <p class="font-weight-bold">Condicionales. Sentencia switch</p>
+        <p class="font-weight-normal">
+            /* SWITCH:<br />
+            - Se utiliza para hacer diferentes acciones basadas en diferentes condiciones. <br />
+            - La condición se evalúa una única vez.<br />
+            - Si hay alguna coincidencia con algún valor se ejecuta el bloque de código correspondiente.<br />
+            - Break: sale del bloque switch.<br />
+            - Default: se ejecuta en caso de que la expresión no coincide con ningún valor.<br />
+            */
+            <br />
+            /* SINTAXIS<br />
+            switch (<expresión>){<br />
+                case valor_1: <br />
+                //Instrucciones para valor_1<br />
+                break;<br />
+                case valor_n:<br />
+                //Instrucciones para valor_n<br />
+                break;<br />
+                default: <br />
+                //Instrucciones en caso de que no se cumpla ninguna condición.<br />
+                }*/<br />
+        </p>
 
         <pre class="code-js">
             <code>
@@ -668,17 +669,17 @@
     </code>
 </pre>
 
-<p class="font-weight-bold">Repeticiones. Bucle for</p>
-<p class="font-weight-normal">
-/* SINTAXIS:<br/>
-for (&lt;sentencia_1&gt;; &lt;sentencia_2&gt;; &lt;sentencia_3&gt;){<br/>
-    //Código que se repite<br/>
-}<br/>
-- SENTENCIA 1: se ejecuta antes del que empiece el bloque de código a repetir.<br/>
-- SENTENCIA 2: define la condición por la que el bloque de código se va a ejecutar.<br/>
-- SENTENCIA 3: se ejecuta después de que acabe el bloque de código a repetir. */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Repeticiones. Bucle for</p>
+        <p class="font-weight-normal">
+            /* SINTAXIS:<br />
+            for (&lt;sentencia_1&gt;; &lt;sentencia_2&gt;; &lt;sentencia_3&gt;){<br />
+            //Código que se repite<br />
+            }<br />
+            - SENTENCIA 1: se ejecuta antes del que empiece el bloque de código a repetir.<br />
+            - SENTENCIA 2: define la condición por la que el bloque de código se va a ejecutar.<br />
+            - SENTENCIA 3: se ejecuta después de que acabe el bloque de código a repetir. */<br />
+        </p>
+        <pre class="code-js">
     <code>
 		&lt;script&gt;
                 var i;
@@ -722,8 +723,8 @@ for (&lt;sentencia_1&gt;; &lt;sentencia_2&gt;; &lt;sentencia_3&gt;){<br/>
 </code>
 </pre>
 
-<p class="font-weight-bold">Repeticiones. Bucle for in</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Repeticiones. Bucle for in</p>
+        <pre class="code-js">
     <code>
         &lt;script&gt;
 			//Definimos un objeto animal
@@ -735,9 +736,9 @@ for (&lt;sentencia_1&gt;; &lt;sentencia_2&gt;; &lt;sentencia_3&gt;){<br/>
         &lt;/script&gt;
 </code>
 </pre>
-    
-<p class="font-weight-bold">Repeticiones. Bucle while</p>
-<pre class="code-js">
+
+        <p class="font-weight-bold">Repeticiones. Bucle while</p>
+        <pre class="code-js">
     <code>
         &lt;script&gt;
 			/* SINTAXIS WHILE:
@@ -759,18 +760,18 @@ for (&lt;sentencia_1&gt;; &lt;sentencia_2&gt;; &lt;sentencia_3&gt;){<br/>
 </code>
 </pre>
 
-<p class="font-weight-bold">Saltos. Sentencias break y continue</p>
-<p class="font-weight-normal">
-BREAK: salir o saltar fuera un bucle, finalizándolo.<br/>
-CONTINUE: saltar hasta la siguiente iteración del bucle; permite saltar una o más iteraciones. <br/>
-<br/>
-ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos puntos.<br/>
-		  - Break sin etiquetas se puede utilizar en bucles o switch.<br/>
-		  - Break con eitqueta también se puede utilizar en un bloque de sentencias etiquetado.<br/>
-		  - Continue: la etiqueta es opcional. Siempre debe estar dentro un bucle.<br/>		   
-</p>
+        <p class="font-weight-bold">Saltos. Sentencias break y continue</p>
+        <p class="font-weight-normal">
+            BREAK: salir o saltar fuera un bucle, finalizándolo.<br />
+            CONTINUE: saltar hasta la siguiente iteración del bucle; permite saltar una o más iteraciones. <br />
+            <br />
+            ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos puntos.<br />
+            - Break sin etiquetas se puede utilizar en bucles o switch.<br />
+            - Break con eitqueta también se puede utilizar en un bloque de sentencias etiquetado.<br />
+            - Continue: la etiqueta es opcional. Siempre debe estar dentro un bucle.<br />
+        </p>
 
-<pre class="code-js">
+        <pre class="code-js">
     <code>
       &lt;script&gt;
         
@@ -824,9 +825,9 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
         </code>
 </pre>
 
-<h1>2. Objetos Predefinidos</h1>
-<p class="font-weight-bold">Objetos. Introducción</p>
-<pre class="code-js">
+        <h1>2. Objetos Predefinidos</h1>
+        <p class="font-weight-bold">Objetos. Introducción</p>
+        <pre class="code-js">
     <code>
 &lt;script&gt;
     //DATOS PRIMITIVOS:
@@ -863,8 +864,8 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 </code>
 </pre>
 
-<p class="font-weight-bold">Objetos. Constructores integrados</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos. Constructores integrados</p>
+        <pre class="code-js">
     <code>
     &lt;script&gt;
         //1. String: 
@@ -904,8 +905,8 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 </code>
 </pre>
 
-<p class="font-weight-bold">Objetos nativos. String</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos nativos. String</p>
+        <pre class="code-js">
     <code>
 
         &lt;script&gt;
@@ -989,13 +990,13 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 </code>
 </pre>
 
-<p class="font-weight-bold">Objetos nativos. Number</p>
-<p class="font-weight-normal">
-    CARACTERÍSTICAS:<br/>
-        - Solo hay un tipo de datos numérico.<br/>
-        - Podemos representar: 34, 34.05, 123e4, 123e-4, 0xFF <br/>
-    </p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos nativos. Number</p>
+        <p class="font-weight-normal">
+            CARACTERÍSTICAS:<br />
+            - Solo hay un tipo de datos numérico.<br />
+            - Podemos representar: 34, 34.05, 123e4, 123e-4, 0xFF <br />
+        </p>
+        <pre class="code-js">
     <code>
 
         &lt;script&gt;
@@ -1088,14 +1089,14 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 </code>
 </pre>
 
-<p class="font-weight-bold">Objetos nativos. Math</p>
-<p class="font-weight-normal">
-    /* CARACTERÍSTICAS: <br/>
-    - Permite realizar operaciones matemáticas.<br/>
-    - No es un constructor: NO usamos var x = new Math();<br/>
-    - Ej: var pi = Math.PI; var raiz = Math.sqrt(36); */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos nativos. Math</p>
+        <p class="font-weight-normal">
+            /* CARACTERÍSTICAS: <br />
+            - Permite realizar operaciones matemáticas.<br />
+            - No es un constructor: NO usamos var x = new Math();<br />
+            - Ej: var pi = Math.PI; var raiz = Math.sqrt(36); */<br />
+        </p>
+        <pre class="code-js">
     <code>
 
 		&lt;script&gt;
@@ -1149,13 +1150,13 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 </code>
 </pre>
 
-<p class="font-weight-bold">Objetos nativos. Date </p>
-<p class="font-weight-normal">
-    /* CREACIÓN DE OBJETOS DE TIPO DATE.<br/>
-    Nota: los meses comienzan en 0. Los días de la semana <br/>
-    también, siendo el 0 el domingo, el 1 el lunes... */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos nativos. Date </p>
+        <p class="font-weight-normal">
+            /* CREACIÓN DE OBJETOS DE TIPO DATE.<br />
+            Nota: los meses comienzan en 0. Los días de la semana <br />
+            también, siendo el 0 el domingo, el 1 el lunes... */<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;script&gt;
 			/* CREACIÓN DE OBJETOS DE TIPO DATE.
@@ -1227,8 +1228,8 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
     </code>
 </pre>
 
-<p class="font-weight-bold">Objetos nativos. Boolean</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos nativos. Boolean</p>
+        <pre class="code-js">
     <code>
 		&lt;script&gt;
 		//Función Boolean()
@@ -1259,17 +1260,17 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 </code>
 </pre>
 
-<p class="font-weight-bold">Objetos del navegador. Window</p>
-<p class="font-weight-normal">
-/* CARACTERÍSTICAS:<br/>
-- Representa una ventana abierta en un navegador.<br/>
-- Si una ventana tiene etiquetas de tipo &lt;iframe&gt; <br/>
-  el navegador crea un objeto window para el html inicial y uno para cada &lt;iframe&gt;<br/>
-- Todos los objetos, funciones, variables... son miembros del objeto window: las funciones <br/>
-  son sus métodos; las variables globales y el DOM sos propiedades. <br/>
-- No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad.*/<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos del navegador. Window</p>
+        <p class="font-weight-normal">
+            /* CARACTERÍSTICAS:<br />
+            - Representa una ventana abierta en un navegador.<br />
+            - Si una ventana tiene etiquetas de tipo &lt;iframe&gt; <br />
+            el navegador crea un objeto window para el html inicial y uno para cada &lt;iframe&gt;<br />
+            - Todos los objetos, funciones, variables... son miembros del objeto window: las funciones <br />
+            son sus métodos; las variables globales y el DOM sos propiedades. <br />
+            - No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad.*/<br />
+        </p>
+        <pre class="code-js">
     <code>
 
             &lt;p id="ventana"&gt;&lt;/p&gt;
@@ -1366,10 +1367,10 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
                 &lt;button onclick="imprimir()"&gt;Imprimir ventana&lt;/button&gt;
     
     </code>
-</pre>   
+</pre>
 
-<p class="font-weight-bold">Objetos del navegador. Cuadros de diálogo</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos del navegador. Cuadros de diálogo</p>
+        <pre class="code-js">
     <code>
 
         &lt;script&gt;
@@ -1392,15 +1393,15 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
       
           </script>
     </code>
-</pre>    
+</pre>
 
-<p class="font-weight-bold">Objetos del navegador. Window. Tiempo</p>
-<p class="font-weight-normal">
-    /* EVENTOS DE TIEMPO:<br/>
-    - El objeto window permite ejecutar código en intervalos de tiempo.<br/>
-    - Hay tres métodos: setTimeout, clearTimeout, setInterval */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos del navegador. Window. Tiempo</p>
+        <p class="font-weight-normal">
+            /* EVENTOS DE TIEMPO:<br />
+            - El objeto window permite ejecutar código en intervalos de tiempo.<br />
+            - Hay tres métodos: setTimeout, clearTimeout, setInterval */<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;p id="reloj"&gt;&lt;/p&gt;
 		&lt;script&gt;
@@ -1430,16 +1431,16 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 		&lt;button onclick="clearTimeout(sal)"&gt;Cancelar saludo&lt;/button&gt;
 		&lt;button onclick="clearTimeout(int)"&gt;Cancelar reloj&lt;/button&gt;
     </code>
-</pre>    
+</pre>
 
-<p class="font-weight-bold">Objetos del navegador. Window. Tiempo</p>
-<p class="font-weight-normal">
-    /* CARACTERÍSTICAS:<br/>
-        - Guarda información sobre el navegador.<br/>
-        - No hay un estándar público pero la mayoría de <br/>
-        los navegadores soportan este objeto. */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos del navegador. Window. Tiempo</p>
+        <p class="font-weight-normal">
+            /* CARACTERÍSTICAS:<br />
+            - Guarda información sobre el navegador.<br />
+            - No hay un estándar público pero la mayoría de <br />
+            los navegadores soportan este objeto. */<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;p id="navegador"&gt;&lt;/p&gt;
         &lt;script&gt;
@@ -1479,15 +1480,15 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 
         &lt;/script&gt;
     </code>
-</pre>    
+</pre>
 
-<p class="font-weight-bold">Objetos del navegador. Screen</p>
-<p class="font-weight-normal">
-    /* CARACTERÍSTICAS:<br/>
-        - Contiene la información de la ventana del visitante.<br/>
-        - No hay un estándar público pero la mayoría de los navegadores soportan Screen */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos del navegador. Screen</p>
+        <p class="font-weight-normal">
+            /* CARACTERÍSTICAS:<br />
+            - Contiene la información de la ventana del visitante.<br />
+            - No hay un estándar público pero la mayoría de los navegadores soportan Screen */<br />
+        </p>
+        <pre class="code-js">
     <code>
     &lt;p id="pantalla"&gt;&lt;/p&gt;
         &lt;script&gt;
@@ -1518,22 +1519,13 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
     </code>
 </pre>
 
-<p class="font-weight-bold">Objetos del navegador. Screen</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
-
-<p class="font-weight-bold">Objetos del navegador. History</p>
-<p class="font-weight-normal">
-    /* CARACTERÍSTICAS:<br/>
-    - Guarda información de las URLs visitadas por el usuario dentro de una ventana del explorador.<br/>
-    - No hay un estándar público pero la mayoría de los navegadores soportan este objeto. */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Objetos del navegador. History</p>
+        <p class="font-weight-normal">
+            /* CARACTERÍSTICAS:<br />
+            - Guarda información de las URLs visitadas por el usuario dentro de una ventana del explorador.<br />
+            - No hay un estándar público pero la mayoría de los navegadores soportan este objeto. */<br />
+        </p>
+        <pre class="code-js">
     <code>
 		&lt;script&gt;
 			/* CARACTERÍSTICAS:
@@ -1566,17 +1558,14 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
 		&lt;button onclick="adelante()"&gt;Adelante&lt;/button&gt;
 		&lt;button onclick="ir()"&gt;Ir a una página&lt;/button&gt;
     </code>
-</pre>  
-
-
-
+</pre>
 
         <p class="font-weight-bold">Objetos del navegador. Location</p>
         <p class="font-weight-normal">
-            /* CARACTERÍSTICAS:<br/>
-            - Guarda información de la URL actual.<br/>
-            - No hay un estándar público pero la mayoría <br/>
-            de los navegadores soportan este objeto. */<br/>
+            /* CARACTERÍSTICAS:<br />
+            - Guarda información de la URL actual.<br />
+            - No hay un estándar público pero la mayoría <br />
+            de los navegadores soportan este objeto. */<br />
         </p>
         <pre class="code-js">
             <code>
@@ -1628,9 +1617,10 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
                 &lt;button onclick="sustituye()"&gt;Sustituye la página&lt;/button&gt;
     
             </code>
-        </pre>  
-        
-    
+        </pre>
+
+
+        <h1>3. Objetos Definidos Usuario Arrays</h1>
         <p class="font-weight-bold">Objetos. Definición</p>
         <pre class="code-js">
             <code>
@@ -1662,15 +1652,15 @@ ETIQUETAS: preceder una sentencia con el nombre de la etiqueta seguido de dos pu
         
                 &lt;/script&gt;
             </code>
-        </pre>  
-       
+        </pre>
+
         <p class="font-weight-bold">Objetos. Propiedades</p>
         <p class="font-weight-normal">
-        Sintaxis de acceso a las propiedades de un objeto:<br/>
-        - objeto.propiedad;<br/>
-        - objeto["propiedad"]<br/>
-        - objeto[expresion] <br/>
-        </p>    
+            Sintaxis de acceso a las propiedades de un objeto:<br />
+            - objeto.propiedad;<br />
+            - objeto["propiedad"]<br />
+            - objeto[expresion] <br />
+        </p>
         <pre class="code-js">
         <code>
 &lt;script&gt;
@@ -1709,18 +1699,18 @@ for (x in persona1){
 &lt;/script&gt;
 
             </code>
-        </pre>  
+        </pre>
 
-<p class="font-weight-bold">>Objetos. Métodos</p>
-<p class="font-weight-normal">
-    /*Sintaxis de creación de métodos de un objeto:<br/>
-    <nombre_método> : function() { <br/>
-        //Instrucciones<br/>
-    } <br/>
-    Sintaxis de acceso a métodos de un objeto:<br/>
-    <nombre_objeto>.<nombre_método>(); */<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">>Objetos. Métodos</p>
+        <p class="font-weight-normal">
+            /*Sintaxis de creación de métodos de un objeto:<br />
+            <nombre_método> : function() { <br />
+                //Instrucciones<br />
+                } <br />
+                Sintaxis de acceso a métodos de un objeto:<br />
+                <nombre_objeto>.<nombre_método>(); */<br />
+        </p>
+        <pre class="code-js">
     <code>
        
 		&lt;script&gt;
@@ -1735,25 +1725,25 @@ for (x in persona1){
 		alert (persona1.nombreCompleto());
 		&lt;/script&lt;
     </code>
-</pre>  
+</pre>
 
-<h1>4. Eventos Formularios Cookies</h1>
+        <h1>4. Eventos Formularios Cookies</h1>
 
 
 
-<p class="font-weight-bold">Eventos. Modelo de registro de eventos en línea</p>
-<p class="font-weight-normal">
-    EVENTO:<br/>
-        Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
-        Capturar un evento es programar una acción para que se realice una tarea.<br/>
-        El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
-        <br/>
-        MANEJADOR:<br/>
-            Acción que se va a manejar. <br/>
-            Por ejempo, en el evento click <br/>
-            (hacer click con el ratón) el manejador es onClick.<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Eventos. Modelo de registro de eventos en línea</p>
+        <p class="font-weight-normal">
+            EVENTO:<br />
+            Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br />
+            Capturar un evento es programar una acción para que se realice una tarea.<br />
+            El encargado de gestionar los eventos es el DOM(Document Object Model).<br />
+            <br />
+            MANEJADOR:<br />
+            Acción que se va a manejar. <br />
+            Por ejempo, en el evento click <br />
+            (hacer click con el ratón) el manejador es onClick.<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;body onload="alert('La página se ha cargado correctamente')"&gt;
         &lt;h1&gt;Modelo de registro de eventos en línea&lt;/h1&gt;
@@ -1792,20 +1782,20 @@ for (x in persona1){
         &lt;!-- Escribimos la etiqueta: &lt;body onload="funcion_ejecutar"&gt; --&gt;
         &lt;/body&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Eventos. Modelo de registro de eventos tradicional</p>
-<p class="font-weight-normal">
-    EVENTO:<br/>
-        Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
-        Capturar un evento es programar una acción para que se realice una tarea.<br/>
-        El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
-        <br/>
-        MANEJADOR:<br/>
-            Acción que se va a manejar. Por ejempo, <br/>
-            en el evento click (hacer click con el ratón) el manejador es onClick.<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Eventos. Modelo de registro de eventos tradicional</p>
+        <p class="font-weight-normal">
+            EVENTO:<br />
+            Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br />
+            Capturar un evento es programar una acción para que se realice una tarea.<br />
+            El encargado de gestionar los eventos es el DOM(Document Object Model).<br />
+            <br />
+            MANEJADOR:<br />
+            Acción que se va a manejar. Por ejempo, <br />
+            en el evento click (hacer click con el ratón) el manejador es onClick.<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;h1&gt;Modelo de registro de eventos tradicional&lt;/h1&gt;
         &lt;h3 id="tradicional"&gt;Pulsa aquí para ver lo que se ejecuta&lt;/h3&gt;
@@ -1831,20 +1821,20 @@ for (x in persona1){
             }
         &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Eventos. Modelo de registro de eventos avanzados del W3C</p>
-<p class="font-weight-normal">
-    EVENTO:<br/>
-    Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
-    Capturar un evento es programar una acción para que se realice una tarea.<br/>
-    El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
-    <br/>
-    MANEJADOR:<br/>
-        Acción que se va a manejar. Por ejempo, en el evento click <br/>
-        (hacer click con el ratón) el manejador es onClick.<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Eventos. Modelo de registro de eventos avanzados del W3C</p>
+        <p class="font-weight-normal">
+            EVENTO:<br />
+            Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br />
+            Capturar un evento es programar una acción para que se realice una tarea.<br />
+            El encargado de gestionar los eventos es el DOM(Document Object Model).<br />
+            <br />
+            MANEJADOR:<br />
+            Acción que se va a manejar. Por ejempo, en el evento click <br />
+            (hacer click con el ratón) el manejador es onClick.<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;h1&gt;Modelo de eventos avanzados del W3C&lt;/h1&gt;
         &lt;h3 id="w3c"&gt;Modelo del W3C&lt;/h3&gt;
@@ -1876,21 +1866,21 @@ for (x in persona1){
             });
         &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Eventos. Modelo de registro de eventos avanzados de Microsoft</p>
-<p class="font-weight-normal">
-    EVENTO:<br/>
-    Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br/>
-    Capturar un evento es programar una acción para que se realice una tarea.<br/>
-    El encargado de gestionar los eventos es el DOM(Document Object Model).<br/>
-    <br/>
-    MANEJADOR:<br/>
-        Acción que se va a manejar. <br/>
-        Por ejempo, en el evento click <br/>
-        (hacer click con el ratón) el manejador es onClick.<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Eventos. Modelo de registro de eventos avanzados de Microsoft</p>
+        <p class="font-weight-normal">
+            EVENTO:<br />
+            Mecanismo que se acciona cuando el usuario realiza un cambio sobre la página web.<br />
+            Capturar un evento es programar una acción para que se realice una tarea.<br />
+            El encargado de gestionar los eventos es el DOM(Document Object Model).<br />
+            <br />
+            MANEJADOR:<br />
+            Acción que se va a manejar. <br />
+            Por ejempo, en el evento click <br />
+            (hacer click con el ratón) el manejador es onClick.<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;h1&gt;Modelo de eventos avanzados de Microsoft&lt;/h1&gt;
         &lt;h3 id="ms"&gt;Modelo de Microsoft&lt;/h3&gt;
@@ -1921,10 +1911,10 @@ for (x in persona1){
             });
         &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Eventos. Obtener información de un evento</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Eventos. Obtener información de un evento</p>
+        <pre class="code-js">
     <code>
         &lt;h1 id="eventos"&gt;Obtener información de un evento&lt;/h1&gt;
         &lt;h2 id="parrafo1"&gt;Párrafo 1&lt;/h2&gt;
@@ -1960,13 +1950,13 @@ for (x in persona1){
             }
         &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Formulario</p>
-<p class="font-weight-normal">
-HTML 
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Formulario</p>
+        <p class="font-weight-normal">
+            HTML
+        </p>
+        <pre class="code-js">
     <code>
         &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -2030,13 +2020,13 @@ HTML
 
 &lt;/html&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Formulario</p>
-<p class="font-weight-normal">
-JS 
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Formulario</p>
+        <p class="font-weight-normal">
+            JS
+        </p>
+        <pre class="code-js">
     <code>
         //SELECCION DEL FORMULARIO
 
@@ -2123,14 +2113,14 @@ function limpiarError(elemento) {
     elemento.className = "";
 }
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -2171,14 +2161,14 @@ function limpiarError(elemento) {
 
 &lt;/html&gt;
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5 AVANZADO</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5 AVANZADO</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -2223,13 +2213,13 @@ function limpiarError(elemento) {
 &lt;/body&gt;
 &lt;/html&gt;
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5 AVANZADO</p>
-<p class="font-weight-normal">
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">VALIDACION DE FORMULARIOS CON HTML5 AVANZADO</p>
+        <p class="font-weight-normal">
+        </p>
+        <pre class="code-js">
     <code>
         window.onload = iniciar;
 
@@ -2313,17 +2303,17 @@ function borrarError() {
     }
 }
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Cookies</p>
-<p class="font-weight-normal">
-     ¿Qué son las Cookies?<br/>
-        - Datos almacenados en nuestro ordenador en pequeños archivos de texto.<br/>
-        - Recuerdan la información de un usuario aunque se cierre el navegador o se desconecte del servidor.<br/>
-        - Podemos guardar el nombre de un visitante de la página, el número de veces que ha entrado, etc.<br/>
-        - Se guardan en forma de pares "nombre=valor": usuario = Ada Lovelace<br/>
-</p>
-<pre class="code-js">
+        <p class="font-weight-bold">Cookies</p>
+        <p class="font-weight-normal">
+            ¿Qué son las Cookies?<br />
+            - Datos almacenados en nuestro ordenador en pequeños archivos de texto.<br />
+            - Recuerdan la información de un usuario aunque se cierre el navegador o se desconecte del servidor.<br />
+            - Podemos guardar el nombre de un visitante de la página, el número de veces que ha entrado, etc.<br />
+            - Se guardan en forma de pares "nombre=valor": usuario = Ada Lovelace<br />
+        </p>
+        <pre class="code-js">
     <code>
         &lt;script&gt;
             //Crear una cookie: nombre; fecha de expiracion -UTC-; edad máxima en segundos; ruta; dominio
@@ -2345,14 +2335,14 @@ function borrarError() {
             alert(document.cookie);        
         &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">Cookies - Ejemplo práctico</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">Cookies - Ejemplo práctico</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;body&gt;
     &lt;button type="button" id="verTodas"&gt;Ver todas las cookies&lt;/button&gt;
@@ -2390,14 +2380,14 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
     
 &lt;/body&gt;
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">Cookies - Ejemplo completo</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">Cookies - Ejemplo completo</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;body&gt;
     &lt;button type="button" id="verTodas"&gt;Ver todas las cookies&lt;/button&gt;
@@ -2464,14 +2454,14 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
     &lt;/script&gt;
 &lt;/body&gt;
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">WebStorage - Ejemplo completo</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">WebStorage - Ejemplo completo</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
             &lt;button type="button" id="incrementar"&gt;Incrementar&lt;/button&gt;
             &lt;button type="button" id="decrementar"&gt;Decrementar&lt;/button&gt;
@@ -2533,14 +2523,14 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
                 
             &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">WebStorage - Ejemplo completo</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">WebStorage - Ejemplo completo</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     &lt;button type="button" id="incrementar"&gt;Incrementar&lt;/button&gt;
     &lt;button type="button" id="decrementar"&gt;Decrementar&lt;/button&gt;    
@@ -2586,15 +2576,15 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
 
     &lt;/script&gt;
     </code>
-</pre>  
+</pre>
 
-<h1>5. DOM</h1>
+        <h1>5. DOM</h1>
 
-<p class="font-weight-bold">Document Object Model - Creación y modificación de elementos</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">Document Object Model - Creación y modificación de elementos</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;!DOCTYPE html&gt;
 
@@ -2659,13 +2649,13 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
 &lt;/html&gt;
 
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Document Object Model</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">Document Object Model</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -2756,13 +2746,13 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
 
 &lt;/html&gt;
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">Document Object Model</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">Document Object Model</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -2834,7 +2824,16 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
 
 &lt;/html&gt;
     </code>
-</pre>  
+</pre>
+
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
+
+        </p>
+        <pre class="code-js">
+    <code>
+    </code>
+</pre>
 
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
@@ -2843,147 +2842,137 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
 <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
-
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">   
+        </p>
+        <pre class="code-js">
     <code>
 
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
+</pre>
 
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
         PRUEBA
     </code>
 </pre>
 
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
+        <p class="font-weight-bold">xxx</p>
+        <p class="font-weight-normal">
 
-</p>
-<pre class="code-js">
+        </p>
+        <pre class="code-js">
     <code>
     </code>
-</pre>  
-
+</pre>
 
 
 </body>
