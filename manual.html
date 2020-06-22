@@ -3205,6 +3205,856 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
     </code>
 </pre>  
 
+<p class="font-weight-bold">JQUERY CSS</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+                .verde {
+                    color: green;
+                }
+            &lt;/style&gt;
+            &lt;script&gt;
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //EXTRAER PROPIEDADES CSS
+                    //Utilizando estilos CSS
+                    console.log($("h1").css("font-size")); //Devuelve el nº de píxeles de la fuente h1
+                    //Utilizando formato CamelCase
+                    console.log($("h1").css("fontSize")); //Devuelve el nº de píxeles de la fuente h1
+        
+                    //MODIFICAR PROPIEDADES CSS
+                    //Una sola propiedad
+                    $("h1").css("fontSize", "40px");
+                    //Varias propiedades
+                    $("h1").css({
+                        "fontSize": "40px",
+                        "color": "red"
+                    });
+        
+                    //MODIFICAR CLASES CSS
+                    $("h3").addClass("verde"); //Añade una clase
+                    $("h3").removeClass("verde"); //Borra una clase
+                    $("h3").toggleClass("verde"); //Añade una clase si no la tiene; sino la elimina
+                    $("h3").hasClass("verde"); //Devuelve true/false si contiene la clase
+        
+                    $("h3").click(function () {
+                        $(this).toggleClass("verde");
+                    });
+        
+                    //MÉTODOS PROPIOS PARA CAMBIAR DIMENSIONES CSS
+                    //.width(), .heigth(), .innerWidth(), .innerHeight(), .outerWidth(), .outerHeight();
+        
+        
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;h1&gt;Titulo 1&lt;/h1&gt;
+            &lt;h3&gt;Titulo3&lt;/h3&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY ANCESTROS</p>
+<p class="font-weight-normal">
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+                .ancestors * {
+                    display: block;
+                    border: 2px solid lightgrey;
+                    padding: 5px;
+                    margin: 15px;
+                }
+            &lt;/style&gt;
+            &lt;script&gt;
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //ASCENDIENTES:
+                    //.parent(): padre directo
+                    //$("span").parent().css("border", "2px solid blue");
+                    //.parents(): todos los antecesores hasta html.
+                    //$("span").parents().css("border", "2px solid blue");
+                    //.parentsUntil(): todos los antecesores hasta uno en concreto
+                    //$("span").parentsUntil("div").css("border", "2px solid blue");
+                    //.closest("etiqueta"): antecesor más cercano con esa etiqueta
+                    //$("span").closest("ul").css("border", "2px solid blue");
+        
+                    //DESCENDIENTES:
+                    //.children(): devuelve hijos directos. Podemos pasar parámetros
+                    //$("li").children().css("border", "2px solid red");
+                    //$("li").children("i.cur").css("border", "2px solid red");
+                    //.find(): hijos que cumplan con una condición
+                    //$("div").find("b").css("border", "2px solid red");
+        
+                    //HERMANOS:
+                    //.siblings(): todos los hermanos
+                    //$("i").siblings().css("border", "2px solid green");
+                    //.next(), prev()
+                    //$("i").next().css("border", "2px solid green");
+                    //.nextAll(), prevAll()
+                    //$("span").nextAll().css("border", "2px solid green");
+                    //.nextUntil(), prevUntil()
+                    //$("span").nextUntil("b").css("border", "2px solid green");
+        
+                    //FILTRADO
+                    //.has, .not, .first, .last, .eq(número)
+        
+                    //AÑADIR ELEMENTOS A UNA SELECCIÓN: ¡Ojo, no crea elementos!
+                    //.add(): entre paréntesis selector, elemento, html, selección...
+                    $("span").add("b").add("div").css("border", "2px solid orange");
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body class="ancestors"&gt;body (tatarabuelo)
+            &lt;div style="width:500px;"&gt;div (bisabuelo)
+                &lt;ul&gt;ul (abuelo)
+                    &lt;li&gt;li (padre)
+                        &lt;span&gt;span&lt;/span&gt; &lt;i class="cur"&gt;cursiva&lt;/i&gt; &lt;b&gt;negrita&lt;/b&gt;&lt;u&gt;subrayado&lt;/u&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY ANCESTROS II</p>
+<p class="font-weight-normal">
+    .append/.prepend: añade/mueve elementos como HIJOS<br/>
+    .before/.after: añade/mueve elementos como HERMANOS<br/>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+                .origen {
+                    border: 2px solid blue;
+                    padding: 10px;
+                }
+                
+                .origen,
+                .hijo {
+                    padding-left: 10px;
+                    color: green
+                }
+                
+                .hermano {
+                    color: red
+                }
+            &lt;/style&gt;
+            &lt;script&gt;
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //.append/.prepend: añade/mueve elementos como HIJOS
+                    //.before/.after: añade/mueve elementos como HERMANOS
+                    alert("Creamos estructura con append/prepend/before/after");
+                    $("div")
+                        .append("&lt;div class='hijo'&gt;1.Append&lt;/div&gt;")
+                        .prepend("&lt;div class='hijo'&gt;2.Prepend&lt;/div&gt;")
+                        .before("&lt;div class='hermano'&gt;3.Before&lt;/div&gt;")
+                        .after("&lt;div class='hermano'&gt;4.After&lt;/div&gt;");
+        
+                    alert("Movemos el primero al final");
+                    //$(elemento).appendTo(destino);
+                    $("ul li:first").appendTo("ul");
+                    alert("Movemos el primero al final otra vez");
+                    //$(destino).append(elemento)
+                    $("ul").append($("ul li:first")); //¡¡OJO, le pasamos el elemento!!
+        
+                    //CLONAR ELEMENTOS
+                    //$(elemento).clone();
+                    alert("CLonamos el primer elemento y lo añadimos al final");
+                    $("ul li:first").clone().appendTo("ul");
+        
+                    //CREAR ELEMENTOS
+                    var enlace1 = $("&lt;a href='http://www.google.com'&gt;Mi enlace&lt;/a&gt;");
+                    var enlace2 = $('&lt;a/&gt;', {
+                        html: "Mi &lt;strong&gt;otro&lt;/strong&gt;enlace",
+                        "class": "nuevo", //Class entre comillas
+                        href: "http://www.google.com"
+                    });
+                    var enlace3 = $("&lt;a href='http://www.google.com'&gt;Mi tercer enlace&lt;/a&gt;");
+        
+                    alert("Añadimos el primer enlace");
+                    $("p").append(enlace1);
+                    alert("Añadimos el segundo enlace");
+                    enlace2.appendTo($("p"));
+                    alert("Añadimos tercer enlace después de ul");
+        
+                    //Insertar y posicionarnos después de un elemento
+                    enlace3.insertAfter("ul");
+                    $("li").after("&lt;li&gt;Nuevo li&lt;/li&gt;"); //Crea y añade a la vez
+        
+                    //ELIMINAR ELEMENTOS
+                    //$(elemento).remove(); Borra el elemento y sus hijos
+                    alert("Borramos la lista");
+                    $("ul").remove();
+                    //$(elemento).empty(); Borra el contenido (hijos) del elemento
+                    alert("Borramos los hijos del div");
+                    $("div.origen").empty();
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;div class="origen"&gt;Texto del div
+            &lt;/div&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Elemento 1&lt;/li&gt;
+                &lt;li&gt;Elemento 2&lt;/li&gt;
+                &lt;li&gt;Elemento 3&lt;/li&gt;
+                &lt;li&gt;Elemento 4&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;&lt;/p&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY - ESPACIO DE NOMBRES</p>
+<p class="font-weight-normal">
+    <b>
+    ESPACIO DE NOMBRES $.fn<br/>
+    Cuando usamos selecciones utilizamos métodos del espacio <br/>
+    de nombres $.fn, y forman parte del objeto JQuery. <br/>
+    Ej. $("div")<br/>
+
+       ESPACIO DE NOMBRES $<br/>
+    Cuando no usamos selecciones, utilizamos métodos del <br/>
+    espacio de nombres $, y forman parte del núcleo del objeto JQuery. <br/>
+    Ej. $.each o jQuery.each<br/>
+    ¡Ojo! Hay métodos de $.fn y de $ con el mismo nombre: ¡no los confundas!<br/>
+    </b>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+        
+            &lt;/style&gt;
+            &lt;script&gt;
+                /* ESPACIO DE NOMBRES $.fn
+                   Cuando usamos selecciones utilizamos métodos del espacio 
+                   de nombres $.fn, y forman parte del objeto JQuery. 
+                   Ej. $("div")
+        
+                      ESPACIO DE NOMBRES $
+                   Cuando no usamos selecciones, utilizamos métodos del 
+                   espacio de nombres $, y forman parte del núcleo del objeto JQuery. 
+                   Ej. $.each o jQuery.each
+                   ¡Ojo! Hay métodos de $.fn y de $ con el mismo nombre: ¡no los confundas!
+                   */
+        
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //Recorrer y manipular elementos de un array/objeto
+                    //$.each(array/obj,function(indice,elem){});
+                    //$.map(array/obj,function(elem,indice){});
+                    //¡OJO! .each es un iterador inmutable que devuelve el array original.
+                    //      .map devuelve un array nuevo basado en el original con los cambios.
+        
+                    //Objeto: utiliza pares clave:valor
+                    var obj = {
+                        "nombre": "Ada",
+                        "apellido": "Lovelace"
+                    };
+                    $.each(obj, function (clave, valor) {
+                        alert(clave + " : " + valor);
+                    });
+        
+                    var array = [1, 3, 5, 7];
+                    $.each(array, function (indice, valor) {
+                        alert(indice + " : " + valor);
+                    });
+        
+                    //Número de elementos de un array
+                    alert("Número de elementos del array " + array.length);
+        
+                    //Buscar un valor en un array
+                    //$.inArray(elem,array): devuelve el índice de un valor en un array, o -1 si el valor no está en el array
+                    if ($.inArray(3, array) !== -1) {
+                        alert("Valor encontrado en la posición " + $.inArray(3, array));
+                    } else {
+                        alert("El valor no se encuentra en el array");
+                    }
+        
+                    //Unir dos arrays
+                    //$.merge([1,2,3],[4,5,6]);
+                    
+                    //--------------ARRAYS DE ELEMENTOS JQUERY ---------------------
+                    //Recorrer un array de elementos de un selector
+                    alert("Recorrer un array de elementos de un selector 'li'");
+                    $("#recorrer").click(function () {
+                        $("li").each(function () {
+                            alert($(this).text());
+                        })
+                    });
+        
+                    //.length: número de elementos de un array
+                    alert("Número de elementos li: " + $("li").length);
+        
+                    //.get(num): extraer el elemento de una posición
+                    var elem = $("li").get(2);
+                    alert("El elemento número 3 es de tipo " + elem.nodeName + " y contiene " + elem.innerHTML);
+        
+                    //.index(): extraer el número de un elemento respecto a sus hermanos
+                    $("li").click(function () {
+                        alert("Has pulsado el elemento " + $(this).index());
+                    });
+        
+                    //$.grep: buscar un elemento que cumpla con una característica: true/false
+                    alert("Buscamos los elementos que tengan índice mayor que 1");
+                    var filtrado = $.grep($("li"), function (elem, indice) {
+                        return indice &gt; 1; //Devolver los elementos con índice &gt; 1
+                    });
+                    $.each(filtrado, function (indice, elemento) {
+                        alert(indice + " : " + elemento.innerHTML);
+                    });
+        
+                    //$.makeArray(array): convertir un array jQuery en un array Javascript
+                    alert("Convertimos un array jQuery en Javascript y lo invertimos");
+                    var arrayJS = $.makeArray($("li"));
+                    arrayJS.reverse();
+                    for (var i = 0; i &lt; arrayJS.length; i++) {
+                        alert(arrayJS[i].innerHTML);
+                    }
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Elemento 1&lt;/li&gt;
+                &lt;li&gt;Elemento 2&lt;/li&gt;
+                &lt;li&gt;Elemento 3&lt;/li&gt;
+                &lt;li&gt;Elemento 4&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;button id="recorrer"&gt;Recorrer lista&lt;/button&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY MÉTODOS</p>
+<p class="font-weight-normal">
+    <b>
+    ESPACIO DE NOMBRES $.fn<br/>
+    Cuando usamos selecciones utilizamos métodos del <br/>
+    espacio de nombres $.fn, y forman parte del objeto JQuery. <br/>
+    Ej. $("div")<br/>
+
+    ESPACIO DE NOMBRES $<br/>
+    Cuando no usamos selecciones, utilizamos métodos del <br/>
+    espacio de nombres $, y forman parte del núcleo del objeto JQuery. <br/>
+    Ej. $.each o jQuery.each<br/>
+    ¡Ojo! Hay métodos de $.fn y de $ con el mismo nombre: ¡no los confundas!<br/>
+    </b>
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+        
+            &lt;/style&gt;
+            &lt;script&gt;
+                /* ESPACIO DE NOMBRES $.fn
+                    Cuando usamos selecciones utilizamos métodos del 
+                    espacio de nombres $.fn, y forman parte del objeto JQuery. 
+                    Ej. $("div")
+        
+                    ESPACIO DE NOMBRES $
+                    Cuando no usamos selecciones, utilizamos métodos del 
+                    espacio de nombres $, y forman parte del núcleo del objeto JQuery. 
+                    Ej. $.each o jQuery.each
+                    ¡Ojo! Hay métodos de $.fn y de $ con el mismo nombre: ¡no los confundas!
+                    */
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //MÉTODOS DE TIPOS
+                    /* $.isFunction(elem);
+                       $.isEmptyObject(elem);
+                       $.isPlainObject(elem);
+                       $.isArray(elem);
+                       $.isNumeric(elem);
+                       $.type(elem);
+                       */
+                    var miArray = [1, 3, 5];
+                    alert("isArray: " + $.isArray(miArray));
+                    alert("isFunction: " + $.isFunction(miArray));
+                    alert("type: " + $.type(miArray));
+        
+                    //MÉTODOS DE FECHAS
+                    var fechayhora = $.now(); //Número de ms desde 1/1/1970
+                    alert(Date(fechayhora));
+        
+                    //MÉTODO DE CADENA
+                    alert("TRIM: *" + $.trim("      varios espacios al principio y fin     ") + "*");
+                    
+                    //MÉTODO DATA
+                    //$.data (nombre,valor) / (nombre) / (objeto)
+                    //$.removeData(nombre)
+                    $("#nombre").click(function () {
+                        $("div").data("nombre", "Ada Lovelace");
+                    });
+                    $("#nombre2").click(function () {
+                        alert($("div").data("nombre"));
+                    });
+                    $("#nombre3").click(function () {
+                        $("div").removeData("nombre");
+                    });
+        
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;div&gt;Esto es un div&lt;/div&gt;
+            &lt;button id="nombre"&gt;Guardar nombre&lt;/button&gt;
+            &lt;button id="nombre2"&gt;Mostrar nombre&lt;/button&gt;
+            &lt;button id="nombre3"&gt;Borrar nombre&lt;/button&gt;
+            &lt;p&gt;&lt;/p&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY - EFECTOS</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+                #panel {
+                    background-color: #e5eecc;
+                    border: solid 1px #c3c3c3;
+                }
+            &lt;/style&gt;
+            &lt;script&gt;
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //Sintaxis de efectos y animaciones
+                    //$(selector).efecto(velocidad) //"slow", "fast", nº de ms
+                    //jQuery.fx.speeds
+                    jQuery.fx.speeds.myRapido = 50;
+        
+                    //Ocultar
+                    $("#ocultar").click(function () {
+                        //$("p").hide();
+                        $("p").hide(1500);
+                    });
+                    //Mostrar
+                    $("#mostrar").click(function () {
+                        $("p").show("fast");
+                    });
+                    //Toggle
+                    $("#toggle").click(function () {
+                        $("p").toggle();
+                    });
+                    //***************************
+                    //fadeIn
+                    $("#fadeIn").click(function () {
+                        $("#div1").fadeIn();
+                        $("#div2").fadeIn("slow");
+                        $("#div3").fadeIn(3000);
+                    });
+                    //fadeOut
+                    $("#fadeOut").click(function () {
+                        $("#div1").fadeOut();
+                        $("#div2").fadeOut("slow");
+                        $("#div3").fadeOut(3000);
+                    });
+                    //fadeToggle
+                    $("#fadeToggle").click(function () {
+                        $("#div1").fadeToggle();
+                        $("#div2").fadeToggle("slow");
+                        $("#div3").fadeToggle(3000);
+                    });
+                    //fadeTo
+                    $("#fadeTo").click(function () {
+                        $("#div1").fadeTo("slow", 0.15);
+                        $("#div2").fadeTo("slow", 0.5);
+                        $("#div3").fadeTo("slow", 0.8);
+                    });
+        
+                    //***************************
+                    //slideDown
+                    $("#slideDown").click(function () {
+                        $("#panel").slideDown();
+                    });
+                    //slideUp
+                    $("#slideUp").click(function () {
+                        $("#panel").slideUp();
+                    });
+                    //slideToggle
+                    $("#slideToggle").click(function () {
+                        $("#panel").slideToggle();
+                    });
+        
+                    //ANIMACIONES **************************
+                    //$(selector).animate({parametros},velocidad,function_callback);
+                    $("#animar").click(function () {
+                        $("#div1").animate({
+                            left: '250px',
+                            opacity: '0.5',
+                            height: '150px',
+                            width: '200px'
+                        });
+                        //.delay(ms): introducir un retardo
+                        $("#div1").delay(2000);
+                        //$("#div1").delay(2000).animate({...});
+                        $("#div1").animate({
+                            height: '100px',
+                            width: '100px',
+                            opacity: '1'
+                        }, "slow");
+                        $("#div1").animate({
+                            fontSize: '+=10'
+                        }, 2000);
+                    });
+        
+                    //Parar una animación
+                    //$(selector).stop(stopAll, goToEnd);
+                    $("#pararAnimar").click(function () {
+                        $("#div1").stop(true, true);
+                    });
+        
+                    //Funciones callback
+                    $("#callback").click(function () {
+                        $("p").hide(1000, function () {
+                            alert("El párrafo ha sido ocultado");
+                        });
+                    });
+                    /*$("#callback").click(function(){
+                        $("p").hide(1000);
+                        alert("El párrafo ha sido ocultado");
+                    });*/
+        
+                    //Encadenamiento de efectos
+                    $("#encadenar").click(function () {
+                        $("p").css("color", "green").hide(2000).delay(500).show(2000);
+                    });
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;p&gt;Texto&lt;/p&gt;
+            &lt;button id="ocultar"&gt;Ocultar&lt;/button&gt;
+            &lt;button id="mostrar"&gt;Mostrar&lt;/button&gt;
+            &lt;button id="toggle"&gt;Toggle&lt;/button&gt;
+            &lt;button id="fadeIn"&gt;FadeIn&lt;/button&gt;
+            &lt;button id="fadeOut"&gt;FadeOut&lt;/button&gt;
+            &lt;button id="fadeToggle"&gt;fadeToggle&lt;/button&gt;
+            &lt;button id="fadeTo"&gt;fadeTo&lt;/button&gt;
+            &lt;button id="slideDown"&gt;SlideDown&lt;/button&gt;
+            &lt;button id="slideUp"&gt;SlideUp&lt;/button&gt;
+            &lt;button id="slideToggle"&gt;SlideToggle&lt;/button&gt;
+            &lt;button id="animar"&gt;Animación&lt;/button&gt;
+            &lt;button id="pararAnimar"&gt;Parar animación&lt;/button&gt;
+            &lt;button id="callback"&gt;Prueba Callback&lt;/button&gt;
+            &lt;button id="encadenar"&gt;Prueba encadenar&lt;/button&gt;
+            &lt;div id="div1" style="width:80px;height:80px;background-color:red;"&gt;¡Hola!&lt;/div&gt;
+            &lt;br&gt;
+            &lt;div id="div2" style="width:80px;height:80px;background-color:green;"&gt;&lt;/div&gt;
+            &lt;br&gt;
+            &lt;div id="div3" style="width:80px;height:80px;background-color:blue;"&gt;&lt;/div&gt;
+            &lt;div id="flip"&gt;Pulsa para bajar la persiana&lt;/div&gt;
+            &lt;div id="panel"&gt;¡Hola, mundo!&lt;/div&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY - EVENTOS</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+        
+            &lt;/style&gt;
+            &lt;script&gt;
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    //Llamada a una función sin parámetros
+                    $("p").on("click", mensaje);
+        
+                    function mensaje() {
+                        alert("Párrafo pulsado");
+                    }
+                    
+                    //Llamada a una función con parámetros
+                    $("p").on("click", {
+                        nombre: "Ada",
+                        apellido: "Lovelace"
+                    }, mensajeParametros);
+        
+                    function mensajeParametros(e) {
+                        alert(e.data.nombre + " " +
+                            e.data.apellido);
+                    }
+                    
+                    //Ejecución de una función anónima
+                    $("p").on("click", function () {
+                        alert($(this).text());
+                    });
+                    
+                    //.one: el evento se ejecuta una única vez PARA CADA ELEMENTO de la selección
+                    $("p").one("click", function () {
+                        alert("El párrafo " + $(this).text() + " ha sido pulsado por primera vez");
+                    });
+                    
+                    //Varios eventos asociados al mismo selector
+                    $("p").on({
+                        mouseenter: function () {
+                            $(this).css("background-color", "lightgray");
+                        },
+                        mouseleave: function () {
+                            $(this).css("background-color", "lightblue");
+                        },
+                        click: function () {
+                            $(this).css("background-color", "yellow");
+                        }
+                    });
+        
+                    //.off: eliminamos el manejador de eventos.
+                    $("#quitarEvento").click(quitarEvento);
+        
+                    function quitarEvento() {
+                        $("p").off();
+                    }
+                    //.trigger: simula la ejecución de un evento(click, mouseover)
+                    //.triggerHandler: tiene diferencias respecto a trigger(ver API)
+                    $("#cuenta1").click(function () {
+                        $("#contador1").text(parseInt($("#contador1").text()) + 1);
+                    });
+                    $("#cuenta2").click(function () {
+                        $("#contador2").text(parseInt($("#contador2").text()) + 1);
+                        $("#cuenta1").trigger("click");
+                    });
+        
+                    //Otras: preventDefault()...
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;button id="quitarEvento"&gt;Quitar evento&lt;/button&gt;
+            &lt;button id="cuenta1"&gt;Cuenta 1&lt;/button&gt;
+            &lt;button id="cuenta2"&gt;Cuenta 2&lt;/button&gt;
+            &lt;p&gt;Parrafo 1&lt;/p&gt;
+            &lt;p&gt;Parrafo 2&lt;/p&gt;
+            &lt;p&gt;Parrafo 3&lt;/p&gt;
+            &lt;p&gt;Parrafo 4&lt;/p&gt;
+            &lt;p&gt;Contador 1: &lt;span id="contador1"&gt;0&lt;/span&gt;&lt;/p&gt;
+            &lt;p&gt;Contador 2: &lt;span id="contador2"&gt;0&lt;/span&gt;&lt;/p&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<p class="font-weight-bold">JQUERY - AJAX</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset="utf-8" /&gt;
+            &lt;script src="js/jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+            &lt;style&gt;
+        
+            &lt;/style&gt;
+            &lt;script&gt;
+                $(document).ready(inicio);
+        
+                function inicio() {
+                    $("#ajax").click(function () {
+                        var nom = $("#nombre").val();
+                        var ape = $("#apellido").val();
+                        var parametros = {
+                            "nombre": nom,
+                            "apellido": ape
+                        };
+                        //$.ajax: tiene un conjunto completo de parámetros
+                        $.ajax({
+                            url: "saludo.php", //URL donde realizamos la petición
+                            data: parametros, //Datos a enviar, como objeto o como cadena
+                            success: function (respuesta) { //Función si la petición ha ido bien
+                                $("#mostrar").text(respuesta);
+                            },
+                            error: function (xhr, status) { //Función si la petición ha fallado
+                                alert("Ha ocurrido un error");
+                            },
+                            complete: function (xhr, status) {
+                                    alert("Petición realizada");
+                                }
+                                //Otras opciones: beforeSend, async, cache, context, headers... (ver API)
+                        });
+                    });
+                    //Otros métodos: basados en $.ajax pero tienen parámetros establecidos por defecto
+                    $("#enviarGet").click(function () {
+                        $.get("saludo.php", {
+                            "nombre": "Ada",
+                            "apellido": "Lovelace"
+                        }, function (respuesta) {
+                            $("#mostrar").text(respuesta);
+                        });
+                    });
+        
+                    $("#enviarGetMensajes").click(function () {
+                        //Función que no envía nada y controla diferentes resultados de la solicitud
+                        $.get("saludo.php", function () {
+                            alert("Exito");
+                        }).done(function () {
+                            alert("Exito 2");
+                        }).fail(function () {
+                            alert("Error");
+                        }).always(function () {
+                            alert("Siempre");
+                        });
+                    });
+        
+                    $("#enviarPost").click(function () {
+                        //Función que envía datos pero no devuelve nada
+                        $.post("saludo.php", {
+                            "nombre": "Ada",
+                            "apellido": "Lovelace"
+                        });
+                        //Función que no envía datos pero recibe respuesta
+                        $.post("holamundo.php", function (respuesta) {
+                            alert("Respuesta: " + respuesta);
+                        });
+                        //Función que envía datos y recibe respuesta
+                        $.post("saludo.php", {
+                            "nombre": "Ada",
+                            "apellido": "Lovelace"
+                        }).done(function (respuesta) {
+                            alert("Respuesta: " + respuesta)
+                        });
+                    });
+        
+                    //Añade un script y ejecuta una función del script
+                    $("#getScript").click(function () {
+                        $.getScript("script.js", function () {
+                            dentroScript();
+                        })
+                    });
+        
+                    //Obtiene un JSON desde el servidor
+                    $("#getJSON").click(function () {
+                        $.getJSON("json.php", function (respuesta) {
+                            $.each(respuesta, function (clave, valor) {
+                                alert(clave + " : " + valor);
+                            });
+                        });
+                    });
+        
+                    //Carga datos del servidor y el HTML lo introduce en un elemento
+                    $("#load").click(function () {
+                        $("#mostrar").load("holamundo.php", function () {
+                            alert("Se ha cargado holamundo.php en #mostrar");
+                        });
+                    });
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+            &lt;input type="text" name="nombre" id="nombre" /&gt;
+            &lt;input type="text" name="apellido" id="apellido" /&gt;
+            &lt;button id="ajax"&gt;Enviar Ajax&lt;/button&gt;
+            &lt;button id="enviarGet"&gt;Enviar Get&lt;/button&gt;
+            &lt;button id="enviarGetMensajes"&gt;Enviar Get&lt;/button&gt;
+            &lt;button id="enviarPost"&gt;Enviar Post&lt;/button&gt;
+            &lt;button id="getScript"&gt;getScript&lt;/button&gt;
+            &lt;button id="getJSON"&gt;getJSON&lt;/button&gt;
+            &lt;button id="load"&gt;Usar Load&lt;/button&gt;
+            &lt;p id="mostrar"&gt;&lt;/p&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+    </code>
+</pre>  
+
+<!--
+<p class="font-weight-bold">xxx</p>
+<p class="font-weight-normal">
+
+</p>
+<pre class="code-js">
+    <code>
+
+    </code>
+</pre>  
+
+
+
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
 
@@ -3277,15 +4127,6 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
     </code>
 </pre>  
 
-<p class="font-weight-bold">xxx</p>
-<p class="font-weight-normal">
-
-</p>
-<pre class="code-js">
-    <code>
-    </code>
-</pre>  
-
 
 <p class="font-weight-bold">xxx</p>
 <p class="font-weight-normal">
@@ -3305,6 +4146,8 @@ document.getElementById("borrarCookie2").addEventListener("click",borrarCookie);
     <code>
     </code>
 </pre>  
+-->
+
 
 </body>
 </html>
